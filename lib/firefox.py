@@ -1,6 +1,10 @@
 from pprint import pprint
 
 class Firefox:
+  # Firefox Class deals with opening the browser, and parts of the Windowing system 
+  # around the web page.  The idea is for this might be to try and merge this with selenium
+  # so you can both programmatically read a page, and visually
+
   def __init__(self):
     self.os = "MacOSX" 
 

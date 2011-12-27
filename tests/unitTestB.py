@@ -6,7 +6,7 @@ class UnitTestB(unittest.TestCase):
         unittest.TestCase.__init__(self,testName)
     def setUp(self):
         firefox.loadbrowser()
-        installed = appdir.InstalledApps()
+        installed = appdir.installed_apps()
         iconimages = list()
         for app in installed:
            iconimages.append(app.iconimage())
@@ -19,8 +19,8 @@ class UnitTestB(unittest.TestCase):
 
         firefox.gotourl(appdir.url)
         
-        self.installable = appdir.InstallableApps()
-        self.installed = appdir.InstalledApps()
+        self.installable = appdir.installable_apps()
+        self.installed = appdir.installed_apps()
         
     def testInstallA(self):
         print(len(self.installable))

@@ -1,6 +1,9 @@
 from pprint import pprint
 
 class AppObject:
+  #AppObject tries to encapsulate the visual representation for an app on a page
+  #It breaks down an app into a name, install_icon, nameregion, icon..etc
+
   def __init__(self):
     self.x = 0
     self.y = 0

@@ -15,9 +15,11 @@ class AppDir:
 
   def page_loaded(self):
     #Waits for the main image on the page to load before returning
-    wait("DemoAPPSAcol.png")
+    wait(system().images("demoapps.png"))
+    wait(system().images("appsvisible.png"))
 
   def installable_apps(self):
+    self.applications = list()
     #Find all the apps that are not installed
     install_icons = list(findAll(system().images("Install.png")))
     for icon in install_icons:
@@ -30,15 +32,17 @@ class AppDir:
   def installed_apps(self):
     #Finds alls the apps that are currently installed
     installed_icons = None
+    self.installedapps = list()
     try: 
       installed_icons = list(findAll(system().images("Installed.png")))
     except FindFailed:
       installed_icons = list()   
     for icon in installed_icons:
+      icon.highlight(2)
       tempApp = AppObject()
       tempApp.topleft("Installed",icon)
-      self.applications.append(tempApp)
-    self.installedapps = sorted(self.applications,key=attrgetter('y','x'))
+      self.installedapps.append(tempApp)
+    self.installedapps = sorted(self.installedapps,key=attrgetter('y','x'))
     return self.installedapps
 
   def is_installed(self,appname):
@@ -51,7 +55,7 @@ class AppDir:
        this.page_loaded()
      try: 
        appRegion = find(appname)
-       appRegion.highlight(3)
+       #appRegion.highlight(2)
        tempApp = AppObject()
        tempApp.topleft("App Name", appRegion)
        tempApp.find("Installed")

@@ -1,10 +1,6 @@
 from pprint import pprint
 
 class Firefox:
-  # Firefox Class deals with opening the browser, and parts of the Windowing system 
-  # around the web page.  The idea is for this might be to try and merge this with selenium
-  # so you can both programmatically read a page, and visually
-
   def __init__(self):
     self.os = "MacOSX" 
 
@@ -12,9 +8,8 @@ class Firefox:
     self.myApp = App("Firefox")
     if not self.myApp.window(): # no window(0) - Firefox not open
       App.open("/Applications/Firefox.app/Contents/MacOS/firefox-bin")
-      wait(5)
-     self.focus()
-     self.maximize()
+      wait(2)
+    self.maximize()
 
   def focus(self):
     self.myApp.focus()
@@ -26,7 +21,8 @@ class Firefox:
 
   def maximize(self):
     self.focus()
-    click(system().images("maximize_firefox.png"))
+    wait(2)
+    system().maximize_firefox(self.myApp)
 
   def reload(self):
     self.focus()
@@ -35,3 +31,8 @@ class Firefox:
   def gotodashboard(self):
     self.focus()
     click(system().images("dashboard_launcher.png"))
+
+  def switchappdirtab(self):
+    self.focus()
+    click(system().images("appdirtab.png"))
+    self.reload()

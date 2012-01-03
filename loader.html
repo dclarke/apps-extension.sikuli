@@ -74,14 +74,13 @@
 <span class="kw">def</span> execdir(path):
   listing = glob.glob(path + <span class="str">"/*.py"</span>)
   <span class="kw">for</span> infile <span class="kw">in</span> listing:
-     <span class="kw">print</span> infile
-     <span class="kw">print</span> execfile(infile)
+    <span class="kw">print</span> infile
+    execfile(infile,globdict)
 
-<span class="kw">print</span> Path
+globdict= globals()
+
 execdir(Path + <span class="str">'lib'</span>)
-firefox = Firefox()
-
-<span class="cmt">#execdir(Path + 'tests')</span>
+execdir(Path + <span class="str">'tests'</span>)
 </pre>
 </body>
 </html>

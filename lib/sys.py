@@ -45,9 +45,15 @@ class macbox(box):
     subprocess.call(["open", self.home])
   def nativedirdeleteapps(self):
     #nativedirdeleteapps will delete all the apps in the binary installed application
-
     subprocess.call(["rm", "-rf", self.home])
-      
+  def maximize_firefox(self,app):
+    app.focus()
+    mTL = find(system().images("maximize_firefox.png"))
+    dragDrop(mTL.getCenter().offset(50,0), Location(100,30))
+    mLL = find(system().images("bottom_right.png"))
+    reg = Screen(0).getBounds()
+    dragDrop(mLL, Location(reg.width,reg.height))
+    
 class winbox(box):
   def __init__(self):
     self.home = os.getenv('APPDATA')

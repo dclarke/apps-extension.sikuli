@@ -51,7 +51,7 @@ class AppObject:
   
   def iconimage(self):
     foo = self.iconregion()
-    foo.highlight(2) 
+    #foo.highlight(1) 
     return capture(foo)
    
   def installed(self):

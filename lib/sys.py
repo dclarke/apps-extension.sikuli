@@ -29,7 +29,7 @@ class box():
     directory = 'images/' + self.mach + '/'
     print directory
     if (os.path.isfile(Path + directory + filename)):
-      return directory+filename
+      return directory + filename
     else:
       return Path + 'images/' +filename
 
@@ -50,21 +50,21 @@ class macbox(box):
       
 class winbox(box):
   def __init__(self):
-    self.home = os.path.expanduser("~") + "/Applications/"
+    self.home = os.getenv('APPDATA')
     self.mach = "windows"
   
   def images(self,filename):
     #images is custom for windows because their slashes are always the wrong way
     #essence is to return all the images
-    directory = 'images\' + self.mach + '\'
+    directory = 'images\\' + self.mach + '\\'
     print directory
     if (os.path.isfile(Path + directory + filename)):
-      return directory+filename
+      return directory + filename
     else:
-      return Path + 'images\' +filename
+      return Path + 'images\\' + filename
   def nativediropen(self):
-    #unimplemented in windows
-    return 0     
+    #Opening APPDATA in windows
+    subprocess.call(["open", self.home])
   def nativedirdeleteapps(self):
     #unimplemented in windows
     return 0

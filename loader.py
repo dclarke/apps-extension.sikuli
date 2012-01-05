@@ -1,13 +1,18 @@
-import glob
-def execdir(path):
-  listing = glob.glob(path + "/*.py")
-  for infile in listing:
-    print infile
-    execfile(infile,globdict)
+'''loader.py is used to load all the libraries / tests into the 
+   main context for processing.
+'''
+import glob 
 
-globdict= globals()
+def execdir(path, separator, directory):
+    '''execdir recurses a directory and calls execfile on each python file'''
+    pythonfiles = path + directory + separator + "*.py"
+    listing = glob.glob(pythonfiles)
+    for infile in listing:
+        execfile(infile, GLOBDICT)
 
-execdir(Path + 'lib')
-execdir(Path + 'tests')
+GLOBDICT = globals()
 
-
+def importfiles(path, separator):
+    '''importfiles takes a path and a separator'''
+    execdir(path, separator, 'lib')
+    execdir(path, separator, 'tests')

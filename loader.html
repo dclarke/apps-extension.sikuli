@@ -70,17 +70,24 @@
 <h2>example.sikuli</h2> <a href="example.zip">(Download this script)</a>
 </div>
 <pre class="sikuli-code">
+<span class="str">'''loader.py is used to load all the libraries / tests into the 
+   main context for processing.
+'''</span>
 <span class="kw">import</span> glob
-<span class="kw">def</span> execdir(path):
-  listing = glob.glob(path + <span class="str">"/*.py"</span>)
-  <span class="kw">for</span> infile <span class="kw">in</span> listing:
-    <span class="kw">print</span> infile
-    execfile(infile,globdict)
 
-globdict= globals()
+<span class="kw">def</span> execdir(path, separator, directory):
+    <span class="str">'''execdir recurses a directory and calls execfile on each python file'''</span>
+    pythonfiles = path + directory + separator + <span class="str">"*.py"</span>
+    listing = glob.glob(pythonfiles)
+    <span class="kw">for</span> infile <span class="kw">in</span> listing:
+        execfile(infile, GLOBDICT)
 
-execdir(Path + <span class="str">'lib'</span>)
-execdir(Path + <span class="str">'tests'</span>)
+GLOBDICT = globals()
+
+<span class="kw">def</span> importfiles(path, separator):
+    <span class="str">'''importfiles takes a path and a separator'''</span>
+    execdir(path, separator, <span class="str">'lib'</span>)
+    execdir(path, separator, <span class="str">'tests'</span>)
 </pre>
 </body>
 </html>

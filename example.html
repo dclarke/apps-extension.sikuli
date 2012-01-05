@@ -70,31 +70,33 @@
 <h2>example.sikuli</h2> <a href="example.zip">(Download this script)</a>
 </div>
 <pre class="sikuli-code">
-<span class="kw">from</span> operator <span class="kw">import</span> itemgetter, attrgetter
-<span class="kw">from</span> pprint <span class="kw">import</span> pprint
+<span class="str">''' Main python script used to load all the test cases, and run the test suite'''</span>
 
-<span class="cmt"># works on all platforms
-</span><span class="kw">import</span> os
 <span class="kw">import</span> unittest
-
 
 mmd = Settings.MoveMouseDelay
 Settings.MouseMoveDelay = <span class="dig">2</span>
 
+MYOS = Env.getOS()
+
+SEPARATOR = <span class="str">'/'</span>
+<span class="kw">if</span> MYOS == OS.WINDOWS:
+    SEPARATOR = <span class="str">'\\'</span>
+
 <span class="cmt"># get the directory containing your running .sikuli
 </span>
-Path = getBundlePath() + <span class="str">'/'</span>
-<span class="kw">print</span> Path
-<span class="kw">if</span> <span class="kw">not</span> Path <span class="kw">in</span> sys.path: sys.path.append(Path)
+PATH = getBundlePath() + SEPARATOR
+<span class="kw">if</span> <span class="kw">not</span> PATH <span class="kw">in</span> sys.path: sys.path.append(PATH)
 
-execfile(Path + <span class="str">'loader.py'</span>)
+execfile(PATH + <span class="str">'loader.py'</span>)
 
 
-<span class="cmt">#applications = list()
-</span>suite = unittest.TestLoader().loadTestsFromTestCase(UnitTestB) <span class="cmt"># see comment</span>
-unittest.TextTestRunner(verbosity=<span class="dig">2</span>).run(suite)
+importfiles(PATH, SEPARATOR)
 
-<span class="cmt">#Settings.MoveMouseDelay = mmd # reset to original value</span>
+SUITE = unittest.TestLoader().loadTestsFromTestCase(UnitTestB) <span class="cmt"># see comment</span>
+unittest.TextTestRunner(verbosity=<span class="dig">2</span>).run(SUITE)
+
+Settings.MoveMouseDelay = mmd <span class="cmt"># reset to original value</span>
 </pre>
 </body>
 </html>

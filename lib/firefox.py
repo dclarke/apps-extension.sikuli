@@ -1,12 +1,11 @@
 class Firefox:
-    ''' This class encapsulates actions that occur on the browser '''
+    """ This class encapsulates actions that occur on the browser """
     def __init__(self):
         self.system = System()
         print self.system
 
     def loadbrowser(self):
-        ''' Load browser, attempts to load the firefox browser '''
-        self.system = System()
+        """ Load browser, attempts to load the firefox browser """
         self.myApp = App("Firefox")
         self.location = system.firefoxLocation()
         App.open(self.location)
@@ -14,11 +13,11 @@ class Firefox:
         self.maximize()
 
     def focus(self):
-        ''' Brings Firefox to the foreground '''
+        """ Brings Firefox to the foreground """
         self.myApp.focus()
 
     def gotourl(self,url):
-        ''' instructs the browser to go to a url '''
+        """ instructs the browser to go to a url """
         wait(2)
         if(self.system.mach == 'mac'):
             type("l", KEY_CMD) # switch to address field
@@ -28,13 +27,13 @@ class Firefox:
             type(url + Key.ENTER)
 
     def maximize(self):
-        ''' Maximizes the application '''
+        """ Maximizes the application """
         self.focus()
         wait(2)
         self.system.maximizeapp(self.myApp)
 
     def reload(self):
-        ''' Reloads the current page '''
+        """ Reloads the current page """
         self.focus()
         if(self.system.mach == 'mac'):
             type("r", KEY_CMD) # reload page
@@ -42,14 +41,14 @@ class Firefox:
             type('r', KEY_CTRL)
 
     def gotodashboard(self):
-        ''' Goes to the Dasbhoard by typing the URL in the 
-            URL bar
-        '''
+        """ clicks on the dashboard icon in the bottom right of firefox. 
+            this is only valid if the extension is installed 
+        """
         self.focus()
         self.gotourl('myapps.mozilllalabs.com')
 
     def switchappdirtab(self):
-        ''' switches to the apps.mozillalabs.com/appdir tab '''
+        """ switches to the apps.mozillalabs.com/appdir tab """
         self.focus()
         click(self.system.images("appdirtab.png"))
         self.reload()

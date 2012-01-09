@@ -1,6 +1,7 @@
-''' Main python script used to load all the test cases, and run the test suite'''
+""" Main python script used to load all the test cases, and run the test suite"""
 
 import unittest
+
 
 mmd = Settings.MoveMouseDelay
 Settings.MouseMoveDelay = 2
@@ -14,6 +15,7 @@ if MYOS == OS.WINDOWS:
 # get the directory containing your running .sikuli
 
 PATH = getBundlePath() + SEPARATOR
+
 if not PATH in sys.path: sys.path.append(PATH)
 
 execfile(PATH + 'loader.py')

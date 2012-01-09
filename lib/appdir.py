@@ -2,14 +2,14 @@ from pprint import pprint
 from operator import itemgetter, attrgetter
 
 class AppDir:
-    ''' An AppDir object is an object representation of https://apps.mozillalabs.com/appdir
+    """ An AppDir object is an object representation of https://apps.mozillalabs.com/appdir
         The purpose of the object is to be able to dissect the page and determine what is installed
-    '''
+    """
     def __init__(self,app):
-        ''' AppDir constructor sets the page url, and takes an application object.  
+        """ AppDir constructor sets the page url, and takes an application object.  
             It allows for the AppDir to make calls into the firefox application to make sure 
             that the correct page is loaded, the browser is focused..etc.
-        '''
+        """
         self.app = app
         self.url = "https://apps.mozillalabs.com/appdir"
         self.system = System()
@@ -17,12 +17,12 @@ class AppDir:
         self.installedapps = list()
 
     def page_loaded(self):
-        ''' Waits for the main image on the page to load before returning'''
+        """ Waits for the main image on the page to load before returning"""
         wait(self.system.images("demoapps.png"))
         wait(self.system.images("appsvisible.png"))
 
     def installable_apps(self):
-        ''' Find all the apps that are not installed'''
+        """ Find all the apps that are not installed"""
         self.applications = list()
         install_icons = list(findAll(self.system.images("Install.png")))
         for icon in install_icons:
@@ -33,7 +33,7 @@ class AppDir:
         return self.applications
 
     def installed_apps(self):
-        '''Finds alls the apps that are currently installed'''
+        """Finds alls the apps that are currently installed"""
         installed_icons = None
         self.installedapps = list()
         try: 
@@ -49,7 +49,7 @@ class AppDir:
         return self.installedapps
 
     def is_installed(self,appname):
-        '''Checks to see if an app is installed'''
+        """Checks to see if an app is installed"""
         app.focus()
         try: 
             this.page_loaded()
@@ -60,7 +60,6 @@ class AppDir:
             appRegion = find(appname)
             tempApp = AppObject()
             tempApp.topleft("App Name", appRegion)
-            tempApp.find("Installed")
-            return true
+            return tempApp.installed()
         except FindFailed:
             return false

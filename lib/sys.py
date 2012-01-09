@@ -1,4 +1,3 @@
-
 """ Author: David Clarke
     Contributors: David Clarke, Mohamed Dabbagh
 """
@@ -84,8 +83,8 @@ class WinBox(Box):
     def firefoxLocation(self):
         if(os.path.isdir('C:\\Program Files (x86)\\Mozilla Firefox\\')):
             return 'C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe'
-        elif(os.path.isdir('C:\\Prgram Files\\Mozilla Firefox\\')):
-            return 'C:\\Prgram Files\\Mozilla Firefox\\firefox.exe'
+        elif(os.path.isdir('C:\\Program Files\\Mozilla Firefox\\')):
+            return 'C:\\Program Files\\Mozilla Firefox\\firefox.exe'
         else:
 		    # XXX: Need to throw proper error
             return 0

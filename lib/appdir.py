@@ -18,6 +18,10 @@ class AppDir:
 
     def page_loaded(self):
         ''' Waits for the main image on the page to load before returning'''
+        print "TESTING"
+        foo = self.system.images("demoapps.png")
+        print foo
+        print "TESTING AGAIN"	
         wait(self.system.images("demoapps.png"))
         wait(self.system.images("appsvisible.png"))
 

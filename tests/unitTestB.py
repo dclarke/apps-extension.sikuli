@@ -31,13 +31,13 @@ class UnitTestB(unittest.TestCase):
         self.installed = appdir.installed_apps()
     def testInstallA(self):
         self.installable[0].installregion().click(system.images("Install.png"))
-        click("images/install_accept.png")
+        click("install_accept.png")
         firefox.reload()
         self.assertTrue(self.installable[0].installed())
     def testInstallB(self):
         firefox.focus()
         self.installable[0].installregion().click(system.images("Install.png"))
-        click("images/install_accept.png")
+        click("install_accept.png")
         firefox.reload()
         self.installed = appdir.installed_apps()
         img = self.installed[0].iconimage()

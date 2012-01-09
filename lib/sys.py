@@ -16,7 +16,7 @@ class Box(object):
         ''' Find an image stored in images/(mac/win/linux) or images directory'''
         directory = 'images' + SEPARATOR + self.mach + SEPARATOR
         if (os.path.isfile(PATH + directory + filename)):
-            return PATH + directory + filename
+            return PATH + directory + filename         
         else:
             return PATH + 'images' + SEPARATOR + filename
 

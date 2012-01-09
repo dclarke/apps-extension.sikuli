@@ -4,6 +4,7 @@
 """
 
 import subprocess
+import os 
 
 class Box(object):
     """ Base class representation for all machines """

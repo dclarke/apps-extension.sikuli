@@ -3,14 +3,13 @@ appdir = AppDir(firefox)
 myapps = MyApps(firefox)
 system = System()
 firefox.loadbrowser()
-firefox.gotourl(appdir.url)
 
 class UnitTestB(unittest.TestCase):
     def __init__(self,testName):
         unittest.TestCase.__init__(self,testName)
 
     def setUp(self):
-        wait(10)
+        wait(1)
         firefox.switchappdirtab()
         firefox.focus()
         appdir.page_loaded()
@@ -46,6 +45,7 @@ class UnitTestB(unittest.TestCase):
         img = desktopsize(img)
         print img
         system.nativediropen()
+        wait(1)
         find(img).highlight(2)
         assert exists(img)
     

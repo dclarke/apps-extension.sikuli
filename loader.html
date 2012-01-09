@@ -67,27 +67,37 @@
    </head>
 <body>
 <div class="info">
-<h2>apps-extension.sikuli\example.sikuli</h2> <a href="apps-extension.sikuli\example.zip">(Download this script)</a>
+<h2>example.sikuli</h2> <a href="example.zip">(Download this script)</a>
 </div>
 <pre class="sikuli-code">
-<span class="str">'''loader.py is used to load all the libraries / tests into the 
+<span class="str">"""loader.py is used to load all the libraries / tests into the 
    main context for processing.
-'''</span>
+"""</span>
 <span class="kw">import</span> glob
 
 <span class="kw">def</span> execdir(path, separator, directory):
-    <span class="str">'''execdir recurses a directory and calls execfile on each python file'''</span>
+    <span class="str">"""execdir recurses a directory and calls execfile on each python file"""</span>
     pythonfiles = path + directory + separator + <span class="str">"*.py"</span>
     listing = glob.glob(pythonfiles)
     <span class="kw">for</span> infile <span class="kw">in</span> listing:
         execfile(infile, GLOBDICT)
 
+<span class="kw">def</span> importjava(path, separator, directory):
+    <span class="str">"""import any java libraries that are necessary"""</span>
+    jarfiles = path + directory + separator + <span class="str">"*.jar"</span>
+    <span class="kw">print</span> jarfiles
+    jars = glob.glob(jarfiles)
+    <span class="kw">for</span> jar <span class="kw">in</span> jars:
+        <span class="kw">print</span> <span class="str">"adding "</span> + jar + <span class="str">" to the system path"</span>
+        sys.path.append(jar)
+
 GLOBDICT = globals()
 
 <span class="kw">def</span> importfiles(path, separator):
-    <span class="str">'''importfiles takes a path and a separator'''</span>
+    <span class="str">"""importfiles takes a path and a separator"""</span>
     execdir(path, separator, <span class="str">'lib'</span>)
     execdir(path, separator, <span class="str">'tests'</span>)
+    importjava(path, separator, <span class="str">'java'</span>)
 </pre>
 </body>
 </html>

@@ -45,10 +45,26 @@ class Firefox:
             this is only valid if the extension is installed 
         """
         self.focus()
-        self.gotourl('myapps.mozilllalabs.com')
+        if(exists(self.system.images("developer_preview_tab.png"))):
+            click(self.system.images("developer_preview_tab.png"))
+            return
+ 
+        if(self.system.mach == 'mac'):
+            type("t", KEY_CMD) # reload page
+        else:
+            type('t', KEY_CTRL)  
+        self.gotourl('myapps.mozillalabs.com')
 
     def switchappdirtab(self):
         """ switches to the apps.mozillalabs.com/appdir tab """
         self.focus()
-        click(self.system.images("appdirtab.png"))
-        self.reload()
+        if(exists(self.system.images("mozilla_appdir_tab.png"))):
+            click(self.system.images("mozilla_appdir_tab.png"))
+            self.reload()
+            return
+        if(self.system.mach == 'mac'):
+            type("t", KEY_CMD) # reload page
+        else:
+            type('t', KEY_CTRL) 
+        self.gotourl('apps.mozillalabs.com/appdir')
+

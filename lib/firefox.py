@@ -29,6 +29,7 @@ class Firefox:
 
     def maximize(self):
         ''' Maximizes the application '''
+        self.focus()
         wait(2)
         self.system.maximizeapp(self.myApp)
 

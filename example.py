@@ -18,7 +18,6 @@ if not PATH in sys.path: sys.path.append(PATH)
 
 execfile(PATH + 'loader.py')  
 
-
 importfiles(PATH, SEPARATOR)
 
 SUITE = unittest.TestLoader().loadTestsFromTestCase(UnitTestB) # see comment

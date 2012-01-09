@@ -1,5 +1,6 @@
 
-''' author: David Clarke
+''' Author: David Clarke
+    Contributors: David Clarke, Mohamed Dabbagh
 '''
 
 import os
@@ -39,7 +40,14 @@ class MacBox(Box):
         subprocess.call(["rm", "-rf", self.home])
 
     def images(self, filename): 
-       return super(MacBox, self).images(filename)
+        return super(MacBox, self).images(filename)
+
+    def firefoxLocation(self):
+        if(os.path.isdir('/Applications/Firefox.app/Contents/MacOS')):
+            return '/Applications/Firefox.app/Contents/MacOS/firefox-bin'
+        else:
+            # XXX: Need to return proper error
+            return 0
 
     def maximizeapp(self, app):
         ''' maximize the application that you pass in '''
@@ -63,7 +71,7 @@ class WinBox(Box):
     def images(self,filename):
         ''' images is custom for windows because their slashes are always the wrong way
             essence is to return all the images'''
-        super(WinBox, self).images(filename)
+        return super(WinBox, self).images(filename)
   
     def nativediropen(self):
         ''' Opening APPDATA in windows'''
@@ -72,6 +80,20 @@ class WinBox(Box):
     def nativedirdeleteapps(self):
         '''unimplemented in windows'''
         return 0
+	
+    def firefoxLocation(self):
+        if(os.path.isdir('C:\\Program Files (x86)\\Mozilla Firefox\\')):
+            return 'C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe'
+        elif(os.path.isdir('C:\\Prgram Files\\Mozilla Firefox\\')):
+            return 'C:\\Prgram Files\\Mozilla Firefox\\firefox.exe'
+        else:
+		    # XXX: Need to throw proper error
+            return 0
+
+    def maximizeapp(self, app):
+        #XXX: Need to have better error handling depending on if app is already maximized or not
+        maxButton = self.images("maximize_firefox_icon.png")
+        click(maxButton)
 
 class LinBox(Box):
     ''' linuxbox is currently untested, but will need to be filled in when appropriate '''

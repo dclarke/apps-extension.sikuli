@@ -125,7 +125,8 @@ class LinBox(Box):
             return '/usr/bin/firefox'
 
     def maximizeapp(self, app):
-
+        app.focus()
+        maxButton = self.images("maximize_firefox_icon.png")
 
 class System(object):
     """  A call to the System class anywhere should return an object

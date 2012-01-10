@@ -127,6 +127,8 @@ class LinBox(Box):
     def maximizeapp(self, app):
         app.focus()
         maxButton = self.images("maximize_firefox_icon.png")
+        if(exists(maxButton))
+            click(maxButton)
 
 class System(object):
     """  A call to the System class anywhere should return an object

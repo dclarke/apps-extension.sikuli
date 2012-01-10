@@ -57,9 +57,18 @@ class MacBox(Box):
         mLL = find(self.images("bottom_right.png"))
         reg = Screen(0).getBounds()
         dragDrop(mLL, Location(reg.width,reg.height-100))
-    
+
+class WinError(Exception):
+    """
+    Error to indicate a windows-specific issue, such as finding windows-specific icons.
+    """
+    pass
+
 class WinBox(Box):
     """ A windows box will contain functions that are windows specific """
+
+    MAXIMIZE_BUTTON = "maximize_firefox_icon.png"
+    MINIMIZE_BUTTON = "windows_minimize_icon.png"
 
     def __init__(self):
         super(WinBox, self).__init__()
@@ -86,13 +95,23 @@ class WinBox(Box):
         elif(os.path.isdir('C:\\Program Files\\Mozilla Firefox\\')):
             return 'C:\\Program Files\\Mozilla Firefox\\firefox.exe'
         else:
-		    # XXX: Need to throw proper error
-            return 0
+		    raise WinError, "Could not find firefox.exe on Windows"
 
     def maximizeapp(self, app):
-        #XXX: Need to have better error handling depending on if app is already maximized or not
-        maxButton = self.images("maximize_firefox_icon.png")
-        click(maxButton)
+        """
+        Maximizes the specified application utilizing the windows maximize icon if it exists.
+        
+        Arguments:
+            app: The application to maximize
+        """
+        app.focus()
+        maxButton = self.images(WinBox.MAXIMIZE_BUTTON)
+        minButton = self.images(WinBox.MINIMIZE_BUTTON)
+        
+        if(exists(maxButton)):
+            click(maxButton)
+        elif(not exists(minButton)):
+            raise WinError, "Could not find windows maximize or minimize button on application"
 
 class LinBox(Box):
     """ linuxbox is currently untested, but will need to be filled in when appropriate """

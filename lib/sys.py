@@ -101,6 +101,13 @@ class LinBox(Box):
         self.home = os.path.expanduser("~") + "/Applications/"
         self.mach = "linux"
 
+    def firefoxLocation(self):
+        if(os.path.isfile('/usr/bin/firefox'))
+            return '/usr/bin/firefox'
+
+    def maximizeapp(self, app):
+
+
 class System(object):
     """  A call to the System class anywhere should return an object
        that is tailored to return operating system dependent data

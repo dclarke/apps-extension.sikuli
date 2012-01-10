@@ -61,6 +61,8 @@ class MacBox(Box):
 class WinBox(Box):
     """ A windows box will contain functions that are windows specific """
 
+    MAXIMIZE_BUTTON = "maximize_firefox_icon.png"
+
     def __init__(self):
         super(WinBox, self).__init__()
         """initializes the class """
@@ -90,9 +92,17 @@ class WinBox(Box):
             return 0
 
     def maximizeapp(self, app):
-        #XXX: Need to have better error handling depending on if app is already maximized or not
-        maxButton = self.images("maximize_firefox_icon.png")
-        click(maxButton)
+        """
+        Maximizes the specified application utilizing the windows maximize icon if it exists.
+        
+        Arguments:
+            app: The application to maximize
+        """
+        app.focus()
+        maxButton = self.images(WinBox.MAXIMIZE_BUTTON)
+        
+        if(exists(maxButton)):
+            click(maxButton)
 
 class LinBox(Box):
     """ linuxbox is currently untested, but will need to be filled in when appropriate """

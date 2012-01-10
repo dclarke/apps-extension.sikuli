@@ -121,13 +121,13 @@ class LinBox(Box):
         self.mach = "linux"
 
     def firefoxLocation(self):
-        if(os.path.isfile('/usr/bin/firefox'))
+        if(os.path.isfile('/usr/bin/firefox')):
             return '/usr/bin/firefox'
 
     def maximizeapp(self, app):
         app.focus()
         maxButton = self.images("maximize_firefox_icon.png")
-        if(exists(maxButton))
+        if(exists(maxButton)):
             click(maxButton)
 
 class System(object):

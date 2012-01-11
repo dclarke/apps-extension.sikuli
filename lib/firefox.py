@@ -6,9 +6,8 @@ class Firefox:
 
     def loadbrowser(self):
         """ Load browser, attempts to load the firefox browser """
-        self.myApp = App("Firefox")
         self.location = system.firefoxLocation()
-        App.open(self.location)
+        self.myApp = App.open(self.location)
         wait(5)
         self.maximize()
 

@@ -15,7 +15,7 @@ class Firefox:
         Constructs a Firefox application instance and loads the application.
         """
         self._system = ConstructBox()
-        self.start_browser() 
+        self.start_browser()
         self.maximize()
 
     def start_browser(self):

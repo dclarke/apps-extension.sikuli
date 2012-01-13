@@ -1,48 +1,81 @@
+class TimeoutStartupError(Exception):
+    """
+    Thrown to indicate that firefox failed to startup within a time period.
+    """
+    pass
+
+
 class Firefox:
     """ This class encapsulates actions that occur on the browser """
+    APP_NAME = "Mozilla Firefox"
+    STARTUP_TIMEOUT = 10
+    
     def __init__(self):
-        self.system = System()
-        self.loadbrowser()
+        """
+        Constructs a Firefox application instance and loads the application.
+        """
+        self._system = System()
+        self.start_browser() 
+        self.maximize()
 
-    def loadbrowser(self):
-        """ Load browser, attempts to load the firefox browser """
-        self.location = self.system.firefoxLocation()
-        self.myApp = App("Mozilla Firefox")
+    def start_browser(self):
+        """
+        Starts up the browser if it hasn't already started and waits until it is loaded.
         
-        if not self.myApp.window():
-            App.open(self.location)
+        Raises:
+            TimeoutStartupError: If firefox fails to startup within ten seconds
+        """
+        self._location = self._system.firefoxLocation()
+        self._firefox = App(APP_NAME)
         
-        for i in range(10):
-            if self.myApp.window(): break
+        # If firefox isn't loaded, start firefox
+        if not self._firefox.window():
+            App.open(self._location)
+        
+        is_started = False
+        time_passed = 0
+        
+        # Wait until firefox has started for a period of time
+        while(not is_started and time_passed < STARTUP_TIMEOUT):
+            if self._firefox.window():
+                is_started = True
             wait(1)
         
-        #self.maximize()
+        # If firefox has not started, throw an error
+        if not is_started:
+            raise TimeoutStartupError("Timeout on starting up firefox.")
 
     def focus(self):
-        """ Brings Firefox to the foreground """
-        self.myApp.focus()
+        """
+        Brings Firefox to the foreground by focusing on the firefox application.
+        """
+        self._firefox.focus()
 
-    def gotourl(self,url):
-        """ instructs the browser to go to a url """
-        wait(2)
+    def go_to_url(self, url):
+        """
+        Instructs the browser to go to the specified URL.
+        
+        Arguments:
+            url: The url to go to
+        """
         # switch to address field
-        if(self.system.mach == 'mac'):
+        if(self._system.mach == 'mac'):
             type("l", KEY_CMD)
         else:
             type('l', KEY_CTRL)
+
         paste(url)
         type(Key.ENTER)
 
     def maximize(self):
         """ Maximizes the application """
         self.focus()
-        wait(2)
-        self.system.maximizeapp(self.myApp)
+        self._system.maximizeapp(self._firefox)
 
     def reload(self):
         """ Reloads the current page """
         self.focus()
-        if(self.system.mach == 'mac'):
+        if(self._system.mach == 'mac'):
             type("r", KEY_CMD) # reload page
         else:
             type('r', KEY_CTRL)
@@ -52,26 +85,26 @@ class Firefox:
             this is only valid if the extension is installed 
         """
         self.focus()
-        if(exists(self.system.images("developer_preview_tab.png"))):
-            click(self.system.images("developer_preview_tab.png"))
+        if(exists(self._system.images("developer_preview_tab.png"))):
+            click(self._system.images("developer_preview_tab.png"))
             return
  
-        if(self.system.mach == 'mac'):
+        if(self._system.mach == 'mac'):
             type("t", KEY_CMD) # reload page
         else:
             type('t', KEY_CTRL)  
-        self.gotourl('myapps.mozillalabs.com')
+        self.go_to_url('myapps.mozillalabs.com')
 
     def switchappdirtab(self):
         """ switches to the apps.mozillalabs.com/appdir tab """
         self.focus()
-        if(exists(self.system.images("mozilla_appdir_tab.png"))):
-            click(self.system.images("mozilla_appdir_tab.png"))
+        if(exists(self._system.images("mozilla_appdir_tab.png"))):
+            click(self._system.images("mozilla_appdir_tab.png"))
             self.reload()
             return
-        if(self.system.mach == 'mac'):
+        if(self._system.mach == 'mac'):
             type("t", KEY_CMD) # reload page
         else:
             type('t', KEY_CTRL) 
-        self.gotourl('https://apps.mozillalabs.com/appdir')
+        self.go_to_url('https://apps.mozillalabs.com/appdir')
 

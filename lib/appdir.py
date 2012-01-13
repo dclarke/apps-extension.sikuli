@@ -5,16 +5,16 @@ class AppDir:
     """ An AppDir object is an object representation of https://apps.mozillalabs.com/appdir
         The purpose of the object is to be able to dissect the page and determine what is installed
     """
-    def __init__(self,app):
+    def __init__(self, app):
         """ AppDir constructor sets the page url, and takes an application object.  
             It allows for the AppDir to make calls into the firefox application to make sure 
             that the correct page is loaded, the browser is focused..etc.
         """
         self.app = app
         self.url = "https://apps.mozillalabs.com/appdir"
-        self.system = System()
-        self.applications = list()
-        self.installedapps = list()
+        self.system = ConstructBox()
+        self.applications = []
+        self.installedapps = []
 
     def page_loaded(self):
         """ Waits for the main image on the page to load before returning"""

@@ -104,7 +104,7 @@ class WinBox(Box):
         Arguments:
             app: The application to maximize
         """
-        app.focus()
+        # XXX: Need to maximize against the particular app region
         maxButton = self.images(WinBox.MAXIMIZE_BUTTON)
         minButton = self.images(WinBox.MINIMIZE_BUTTON)
         

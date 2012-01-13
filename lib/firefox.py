@@ -68,7 +68,6 @@ class Firefox:
 
     def maximize(self):
         """ Maximizes the application """
-        self.focus()
         self._system.maximizeapp(self._firefox)
 
     def reload(self):

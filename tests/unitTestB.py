@@ -10,23 +10,24 @@ class UnitTestB(unittest.TestCase):
         wait(1)
         firefox = Firefox()
         firefox.switchappdirtab()
-        """firefox.focus()
+        
+        appdir = AppDir(firefox)
         appdir.page_loaded()
-        installed = appdir.installed_apps()
-        iconimages = list()
-        for app in installed:
-           iconimages.append(app.iconimage())
-        if len(iconimages) > 0:
-          firefox.gotodashboard()
-          myapps.page_loaded()
-          system.nativedirdeleteapps()       
-          for icon in iconimages: 
-             myapps.delete(icon)
+        #installed = appdir.installed_apps()
+        #iconimages = list()
+        #for app in installed:
+        #   iconimages.append(app.iconimage())
+        #if len(iconimages) > 0:
+        #  firefox.gotodashboard()
+        #  myapps.page_loaded()
+        #  system.nativedirdeleteapps()       
+        #  for icon in iconimages: 
+        #     myapps.delete(icon)
 
-        firefox.switchappdirtab()
-        appdir.page_loaded()
-        self.installable = appdir.installable_apps()
-        self.installed = appdir.installed_apps()"""
+        #firefox.switchappdirtab()
+        #appdir.page_loaded()
+        #self.installable = appdir.installable_apps()
+        #self.installed = appdir.installed_apps()
    
     def testSanity(self):
         pass

@@ -2,14 +2,21 @@ class Firefox:
     """ This class encapsulates actions that occur on the browser """
     def __init__(self):
         self.system = System()
-        print self.system
+        self.loadbrowser()
 
     def loadbrowser(self):
         """ Load browser, attempts to load the firefox browser """
-        self.location = system.firefoxLocation()
-        self.myApp = App.open(self.location)
-        wait(5)
-        self.maximize()
+        self.location = self.system.firefoxLocation()
+        self.myApp = App("Mozilla Firefox")
+        
+        if not self.myApp.window():
+            App.open(self.location)
+        
+        for i in range(10):
+            if self.myApp.window(): break
+            wait(1)
+        
+        #self.maximize()
 
     def focus(self):
         """ Brings Firefox to the foreground """
@@ -18,12 +25,13 @@ class Firefox:
     def gotourl(self,url):
         """ instructs the browser to go to a url """
         wait(2)
+        # switch to address field
         if(self.system.mach == 'mac'):
-            type("l", KEY_CMD) # switch to address field
-            type(url + Key.ENTER)
+            type("l", KEY_CMD)
         else:
             type('l', KEY_CTRL)
-            type(url + Key.ENTER)
+        paste(url)
+        type(Key.ENTER)
 
     def maximize(self):
         """ Maximizes the application """
@@ -65,5 +73,5 @@ class Firefox:
             type("t", KEY_CMD) # reload page
         else:
             type('t', KEY_CTRL) 
-        self.gotourl('apps.mozillalabs.com/appdir')
+        self.gotourl('https://apps.mozillalabs.com/appdir')
 

@@ -14,7 +14,7 @@ class Firefox:
         """
         Constructs a Firefox application instance and loads the application.
         """
-        self._system = System()
+        self._system = ConstructBox()
         self.start_browser() 
         self.maximize()
 
@@ -26,7 +26,7 @@ class Firefox:
             TimeoutStartupError: If firefox fails to startup within ten seconds
         """
         self._location = self._system.firefoxLocation()
-        self._firefox = App(APP_NAME)
+        self._firefox = App(Firefox.APP_NAME)
         
         # If firefox isn't loaded, start firefox
         if not self._firefox.window():
@@ -36,7 +36,7 @@ class Firefox:
         time_passed = 0
         
         # Wait until firefox has started for a period of time
-        while(not is_started and time_passed < STARTUP_TIMEOUT):
+        while(not is_started and time_passed < Firefox.STARTUP_TIMEOUT):
             if self._firefox.window():
                 is_started = True
             wait(1)
@@ -58,7 +58,6 @@ class Firefox:
         Arguments:
             url: The url to go to
         """
-        # switch to address field
         if(self._system.mach == 'mac'):
             type("l", KEY_CMD)
         else:

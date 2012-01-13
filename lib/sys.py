@@ -130,18 +130,25 @@ class LinBox(Box):
         if(exists(maxButton)):
             click(maxButton)
 
-class System(object):
+
+class UnsuppportedOSError(Exception):
+    pass
+
+
+class ConstructBox(object):
     """  A call to the System class anywhere should return an object
        that is tailored to return operating system dependent data
     """
+    OS_BOXES = {
+        'Linux': LinBox,
+        'Windows': WinBox,
+        'Mac': MacBox
+    }
 
     def __new__(cls):
-        osname = str(MYOS).capitalize()
-        klass = {
-            'Linux': LinBox(),
-            'Windows': WinBox(),
-            'Mac': MacBox()
-        }.get(osname, None)
-        if not klass:
-            raise Exception, 'Platform not supported'
-        return klass
+        name = str(MYOS).capitalize()
+        
+        if name in ConstructBox.OS_BOXES:
+            return ConstructBox.OS_BOXES[name]()
+        else:
+            raise UnsupportedOSError("Operating system not supported for this test framework")

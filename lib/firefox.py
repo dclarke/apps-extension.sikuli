@@ -72,7 +72,6 @@ class Firefox:
 
     def reload(self):
         """ Reloads the current page """
-        self.focus()
         if(self._system.mach == 'mac'):
             type("r", KEY_CMD) # reload page
         else:
@@ -82,7 +81,6 @@ class Firefox:
         """ clicks on the dashboard icon in the bottom right of firefox. 
             this is only valid if the extension is installed 
         """
-        self.focus()
         if(exists(self._system.images("developer_preview_tab.png"))):
             click(self._system.images("developer_preview_tab.png"))
             return
@@ -95,7 +93,6 @@ class Firefox:
 
     def switchappdirtab(self):
         """ switches to the apps.mozillalabs.com/appdir tab """
-        self.focus()
         if(exists(self._system.images("mozilla_appdir_tab.png"))):
             click(self._system.images("mozilla_appdir_tab.png"))
             self.reload()

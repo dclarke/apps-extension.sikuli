@@ -10,43 +10,54 @@ class AppDir:
             It allows for the AppDir to make calls into the firefox application to make sure 
             that the correct page is loaded, the browser is focused..etc.
         """
-        self.app = app
-        self.url = "https://apps.mozillalabs.com/appdir"
-        self.system = ConstructBox()
-        self.applications = []
-        self.installedapps = []
+        self._app = app
+        self._url = "https://apps.mozillalabs.com/appdir"
+        self._system = ConstructBox()
+        self._applications = []
+        self._installedapps = []
 
     def page_loaded(self):
         """ Waits for the main image on the page to load before returning"""
-        wait(self.system.images("demoapps.png"))
-        wait(self.system.images("appsvisible.png"))
+        wait(self._system.images("demoapps.png"), 10)
+        wait(self._system.images("appsvisible.png"), 10)
 
     def installable_apps(self):
         """ Find all the apps that are not installed"""
-        self.applications = list()
-        install_icons = list(findAll(self.system.images("Install.png")))
+        self._applications = list()
+
+        install_image = 'Windows_Install.png'
+        
+        if(self._system.mach == 'mac'):
+            install_image = 'Mac_Install.png'
+        
+        install_icons = list(findAll(self._system.images("Windows_Install.png")))
         for icon in install_icons:
             tempApp = AppObject()
             tempApp.topleft("Install Button",icon)
-            self.applications.append(tempApp)
-        self.applications = sorted(self.applications,key=attrgetter('y','x'))
-        return self.applications
+            self._applications.append(tempApp)
+        self._applications = sorted(self._applications,key=attrgetter('y','x'))
+        return self._applications
 
     def installed_apps(self):
         """Finds alls the apps that are currently installed"""
         installed_icons = None
-        self.installedapps = list()
-        try: 
-            installed_icons = list(findAll(self.system.images("Installed.png")))
+        self._installedapps = list()
+        try:
+            installed_image = 'Windows_Installed.png'
+            
+            if(self._system.mach == 'mac'):
+                installed_image = 'Mac_Installed.png'
+                
+            installed_icons = list(findAll(self._system.images(installed_image)))   
         except FindFailed:
             installed_icons = list()   
         for icon in installed_icons:
             icon.highlight(2)
             tempApp = AppObject()
             tempApp.topleft("Installed",icon)
-            self.installedapps.append(tempApp)
-        self.installedapps = sorted(self.installedapps,key=attrgetter('y','x'))
-        return self.installedapps
+            self._installedapps.append(tempApp)
+        self._installedapps = sorted(self._installedapps,key=attrgetter('y','x'))
+        return self._installedapps
 
     def is_installed(self,appname):
         """Checks to see if an app is installed"""

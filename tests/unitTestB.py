@@ -34,8 +34,8 @@ class UnitTestB(unittest.TestCase):
    
     def testInstallA(self):
         self.installable[0].installregion().click(self.system.images("Install.png"))
-        click("images/install_accept.png")
-        firefox.reload()
+        click(self.system.images("install_accept.png"))
+        self.firefox.reload()
         self.assertTrue(self.installable[0].installed())
    
     def disabled_testInstallB(self):

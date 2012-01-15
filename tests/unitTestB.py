@@ -1,9 +1,3 @@
-#firefox = Firefox()
-#appdir = AppDir(firefox)
-#myapps = MyApps(firefox)
-#system = System()
-#firefox.loadbrowser()
-
 class UnitTestB(unittest.TestCase):
 
     def setUp(self):
@@ -12,27 +6,27 @@ class UnitTestB(unittest.TestCase):
         
         self.appdir = AppDir(self.firefox)
         self.appdir.page_loaded()
+        self.myapps = MyApps(self.firefox)
+
+        self.installable = self.appdir.installable_apps()
+        self.installed = self.appdir.installed_apps()
+        self.system = ConstructBox()
+
+    def tearDown(self):
+        self.firefox.switchappdirtab()
         installed = self.appdir.installed_apps()
         iconimages = []
         for app in installed:
            iconimages.append(app.iconimage())
         
-        self.myapps = MyApps(self.firefox)
-        
-        """if len(iconimages) > 0:
-          firefox.gotodashboard()
-          myapps.page_loaded()
-          system.nativedirdeleteapps()       
+        if len(iconimages) > 0:
+          self.firefox.gotodashboard()
+          self.myapps.page_loaded()
+          self.system.nativedirdeleteapps()
           for icon in iconimages: 
-              myapps.delete(icon)"""
+              self.myapps.delete(icon)
 
-        #firefox.switchappdirtab()
-        #appdir.page_loaded()
-        self.installable = self.appdir.installable_apps()
-        self.installed = self.appdir.installed_apps()
-        self.system = ConstructBox()
-   
-    def testInstallA(self):
+    def testInstallAppDir(self):
         self.installable[0].installregion().click(self.system.images("Install.png"))
         click(self.system.images("install_accept.png"))
         self.firefox.reload()

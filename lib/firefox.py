@@ -58,6 +58,8 @@ class Firefox:
         Arguments:
             url: The url to go to
         """
+        print "Going to URL: " + url
+        
         if(self._system.mach == 'mac'):
             type("l", KEY_CMD)
         else:
@@ -88,8 +90,9 @@ class Firefox:
         if(self._system.mach == 'mac'):
             type("t", KEY_CMD) # reload page
         else:
-            type('t', KEY_CTRL)  
-        self.go_to_url('myapps.mozillalabs.com')
+            type('t', KEY_CTRL)
+        
+        self.go_to_url('https://myapps.mozillalabs.com/')
 
     def switchappdirtab(self):
         """ switches to the apps.mozillalabs.com/appdir tab """

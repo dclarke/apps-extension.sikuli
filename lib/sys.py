@@ -68,7 +68,7 @@ class WinBox(Box):
     """ A windows box will contain functions that are windows specific """
 
     MAXIMIZE_BUTTON = "maximize_firefox_icon.png"
-    MINIMIZE_BUTTON = "windows_minimize_icon.png"
+    MINIMIZE_BUTTON = "minimize_icon.png"
 
     def __init__(self):
         super(WinBox, self).__init__()

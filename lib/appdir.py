@@ -24,13 +24,8 @@ class AppDir:
     def installable_apps(self):
         """ Find all the apps that are not installed"""
         self._applications = list()
-
-        install_image = 'Windows_Install.png'
         
-        if(self._system.mach == 'mac'):
-            install_image = 'Mac_Install.png'
-        
-        install_icons = list(findAll(self._system.images("Windows_Install.png")))
+        install_icons = list(findAll(self._system.images("Install.png")))
         for icon in install_icons:
             tempApp = AppObject()
             tempApp.topleft("Install Button",icon)
@@ -43,11 +38,7 @@ class AppDir:
         installed_icons = None
         self._installedapps = list()
         try:
-            installed_image = 'Windows_Installed.png'
-            
-            if(self._system.mach == 'mac'):
-                installed_image = 'Mac_Installed.png'
-                
+            installed_image = 'Installed.png'              
             installed_icons = list(findAll(self._system.images(installed_image)))   
         except FindFailed:
             installed_icons = list()   

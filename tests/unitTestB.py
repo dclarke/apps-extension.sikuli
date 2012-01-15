@@ -7,17 +7,17 @@
 class UnitTestB(unittest.TestCase):
 
     def setUp(self):
-        firefox = Firefox()
-        firefox.switchappdirtab()
+        self.firefox = Firefox()
+        self.firefox.switchappdirtab()
         
-        appdir = AppDir(firefox)
-        appdir.page_loaded()
-        installed = appdir.installed_apps()
-        iconimages = list()
+        self.appdir = AppDir(self.firefox)
+        self.appdir.page_loaded()
+        installed = self.appdir.installed_apps()
+        iconimages = []
         for app in installed:
            iconimages.append(app.iconimage())
         
-        myapps = MyApps(firefox)
+        self.myapps = MyApps(self.firefox)
         
         """if len(iconimages) > 0:
           firefox.gotodashboard()
@@ -28,17 +28,12 @@ class UnitTestB(unittest.TestCase):
 
         #firefox.switchappdirtab()
         #appdir.page_loaded()
-        self.installable = appdir.installable_apps()
-        self.installed = appdir.installed_apps()
-        
-        print "Installable"
-        print len(self.installable)
+        self.installable = self.appdir.installable_apps()
+        self.installed = self.appdir.installed_apps()
+        self.system = ConstructBox()
    
-    def testSanity(self):
-        pass
-   
-    def disabled_testInstallA(self):
-        self.installable[0].installregion().click(system.images("Install.png"))
+    def testInstallA(self):
+        self.installable[0].installregion().click(self.system.images("Install.png"))
         click("images/install_accept.png")
         firefox.reload()
         self.assertTrue(self.installable[0].installed())

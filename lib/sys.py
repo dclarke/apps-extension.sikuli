@@ -72,7 +72,6 @@ class WinBox(Box):
 
     def __init__(self):
         super(WinBox, self).__init__()
-        """initializes the class """
         self.home = os.getenv('APPDATA')
         self.mach = "windows"
   
@@ -83,11 +82,11 @@ class WinBox(Box):
   
     def nativediropen(self):
         """ Opening APPDATA in windows"""
-        subprocess.call(["open", self.home])
+        raise NotImplementedError
 
     def nativedirdeleteapps(self):
         """unimplemented in windows"""
-        return 0
+        raise NotImplementedError
 	
     def firefoxLocation(self):
         if(os.path.isdir('C:\\Program Files (x86)\\Mozilla Firefox\\')):

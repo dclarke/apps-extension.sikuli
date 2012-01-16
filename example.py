@@ -19,7 +19,7 @@ PATH = getBundlePath() + SEPARATOR
 if not PATH in sys.path: sys.path.append(PATH)
 
 
-execfile(PATH + 'loader.py')  
+execfile(PATH + 'loader.py') 
 
 importfiles(PATH, SEPARATOR)
 

@@ -38,7 +38,8 @@ class AppDir:
         installed_icons = None
         self._installedapps = list()
         try:
-            installed_image = 'Installed.png'              
+            installed_image = 'Installed.png'
+            # XXX: May not work for more than 3 applications
             installed_icons = list(findAll(self._system.images(installed_image)))   
         except FindFailed:
             installed_icons = list()   

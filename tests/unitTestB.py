@@ -22,17 +22,19 @@ class UnitTestB(unittest.TestCase):
         if len(iconimages) > 0:
           self.firefox.gotodashboard()
           self.myapps.page_loaded()
-          self.system.nativedirdeleteapps()
           for icon in iconimages: 
               self.myapps.delete(icon)
+          self.system.nativedirdeleteapps()
+        
+        self.firefox.close()
 
-    def disabled_testInstallAppDir(self):
+    def testInstallAppDir(self):
         self.installable[0].installregion().click(self.system.images("Install.png"))
         click(self.system.images("install_accept.png"))
         self.firefox.reload()
         self.assertTrue(self.installable[0].installed())
    
-    def disabled_testInstallB(self):
+    def testSingleNativeInstall(self):
         self.installable = self.appdir.installable_apps()
         self.installable[0].installregion().click(self.system.images("Install.png"))
         click(self.system.images("install_accept.png"))
@@ -45,7 +47,7 @@ class UnitTestB(unittest.TestCase):
         find(img).highlight(2)
         assert exists(img)
     
-    def testInstallC(self):
+    def testTwoNativeAppInstalls(self):
         self.installable[3].installregion().click(self.system.images("Install.png"))
         click(self.system.images("install_accept.png"))
         self.installable[4].installregion().click(self.system.images("Install.png"))

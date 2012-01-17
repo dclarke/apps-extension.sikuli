@@ -7,7 +7,8 @@ import os
 
 class Box(object):
     """ Base class representation for all machines """
-        
+    FIREFOX_APP_NAME = None
+
     def __init__(self):
         self.mach = "unknown"
 
@@ -21,6 +22,8 @@ class Box(object):
 
 class MacBox(Box):
     """ A MacBox object will contain functions that are mac specific """
+    FIREFOX_APP_NAME = 'Firefox'
+    
     def __init__(self):
         super(MacBox, self).__init__()
         self.home = os.path.expanduser("~") + "/Applications/"
@@ -69,6 +72,7 @@ class WinBox(Box):
 
     MAXIMIZE_BUTTON = "maximize_firefox_icon.png"
     MINIMIZE_BUTTON = "minimize_icon.png"
+    FIREFOX_APP_NAME = 'Mozilla Firefox'
 
     def __init__(self):
         super(WinBox, self).__init__()

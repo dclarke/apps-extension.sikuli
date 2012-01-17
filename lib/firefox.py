@@ -7,7 +7,6 @@ class TimeoutStartupError(Exception):
 
 class Firefox:
     """ This class encapsulates actions that occur on the browser """
-    APP_NAME = "Firefox"
     STARTUP_TIMEOUT = 10
     
     def __init__(self):
@@ -26,7 +25,7 @@ class Firefox:
             TimeoutStartupError: If firefox fails to startup within ten seconds
         """
         self._location = self._system.firefoxLocation()
-        self._firefox = App(Firefox.APP_NAME)
+        self._firefox = App(self._system.FIREFOX_APP_NAME)
         
         # If firefox isn't loaded, start firefox
         if not self._firefox.window():

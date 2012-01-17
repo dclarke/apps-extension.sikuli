@@ -1,15 +1,34 @@
+================
 PreRequisite
 ================
 
 * Sikuli (www.sikuli.org)
 * Selenium (seleniumhq.org)
 
+================
 Getting Setup 
-
 ================
 
 A Github Project that will allow for the functional testing of the Mozilla Labs Application Runtime. 
 
+- Create a github account on github.com
+- Install Git
+  - Windows: http://help.github.com/win-set-up-git/
+  - Linux: http://help.github.com/linux-set-up-git/
+  - Mac: http://help.github.com/mac-set-up-git/
+- Fork the main repository
+  - Follow the steps as outline in here: http://help.github.com/fork-a-repo/
+- Clone the repository using your fork
+  - Navigate to where you would like to clone the repository
+  - Type: 'git clone git@github.com:<your github username>/apps-extension.sikuli.git' (without the quotes)
+- Install Sikuli
+  - Follow the steps for your operating system as outlined in here: http://sikuli.org/download.shtml
+	
+To open the project in Sikuli:
+- Launch Sikuli
+- File > Open -- Choose the .sikuli folder and select Open
+
+================
 LICENSE
 ================
 

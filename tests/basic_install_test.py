@@ -4,7 +4,7 @@ class BasicInstallTest(unittest.TestCase):
         self.firefox = Firefox()
         self.firefox.switchappdirtab()
 
-        self.appdir = AppDir()
+        self.appdir = AppDirPage()
         self.appdir.page_loaded()
         self.myapps = MyApps(self.firefox)
 

@@ -4,12 +4,12 @@ class MyApps:
         """ initialize the myapp object """
         self.url = "https://myapps.mozillalabs.com/"
         self.app = app
-        self.system = System()
+        self.system = ConstructBox()
 
     def page_loaded(self):
         """Reloads the dashboard """
         self.app.reload()
-        wait(self.system.images("clicktolaunch.png"))
+        wait(self.system.images("clicktolaunch.png"), 10)
       
     def delete(self,appimage):
         """ delete an app from the myapps page """

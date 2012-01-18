@@ -7,7 +7,8 @@ import os
 
 class Box(object):
     """ Base class representation for all machines """
-        
+    FIREFOX_APP_NAME = None
+
     def __init__(self):
         self.mach = "unknown"
 
@@ -21,6 +22,8 @@ class Box(object):
 
 class MacBox(Box):
     """ A MacBox object will contain functions that are mac specific """
+    FIREFOX_APP_NAME = 'Firefox'
+    
     def __init__(self):
         super(MacBox, self).__init__()
         self.home = os.path.expanduser("~") + "/Applications/"
@@ -68,11 +71,11 @@ class WinBox(Box):
     """ A windows box will contain functions that are windows specific """
 
     MAXIMIZE_BUTTON = "maximize_firefox_icon.png"
-    MINIMIZE_BUTTON = "windows_minimize_icon.png"
+    MINIMIZE_BUTTON = "minimize_icon.png"
+    FIREFOX_APP_NAME = 'Mozilla Firefox'
 
     def __init__(self):
         super(WinBox, self).__init__()
-        """initializes the class """
         self.home = os.getenv('APPDATA')
         self.mach = "windows"
   
@@ -83,11 +86,11 @@ class WinBox(Box):
   
     def nativediropen(self):
         """ Opening APPDATA in windows"""
-        subprocess.call(["open", self.home])
+        raise NotImplementedError
 
     def nativedirdeleteapps(self):
         """unimplemented in windows"""
-        return 0
+        raise NotImplementedError
 	
     def firefoxLocation(self):
         if(os.path.isdir('C:\\Program Files (x86)\\Mozilla Firefox\\')):
@@ -104,7 +107,7 @@ class WinBox(Box):
         Arguments:
             app: The application to maximize
         """
-        app.focus()
+        # XXX: Need to maximize against the particular app region
         maxButton = self.images(WinBox.MAXIMIZE_BUTTON)
         minButton = self.images(WinBox.MINIMIZE_BUTTON)
         
@@ -130,18 +133,25 @@ class LinBox(Box):
         if(exists(maxButton)):
             click(maxButton)
 
-class System(object):
+
+class UnsuppportedOSError(Exception):
+    pass
+
+
+class ConstructBox(object):
     """  A call to the System class anywhere should return an object
        that is tailored to return operating system dependent data
     """
+    OS_BOXES = {
+        'Linux': LinBox,
+        'Windows': WinBox,
+        'Mac': MacBox
+    }
 
     def __new__(cls):
-        osname = str(MYOS).capitalize()
-        klass = {
-            'Linux': LinBox(),
-            'Windows': WinBox(),
-            'Mac': MacBox()
-        }.get(osname, None)
-        if not klass:
-            raise Exception, 'Platform not supported'
-        return klass
+        name = str(MYOS).capitalize()
+        
+        if name in ConstructBox.OS_BOXES:
+            return ConstructBox.OS_BOXES[name]()
+        else:
+            raise UnsupportedOSError("Operating system not supported for this test framework")

@@ -1,64 +1,61 @@
-firefox = Firefox()
-appdir = AppDir(firefox)
-myapps = MyApps(firefox)
-system = System()
-firefox.loadbrowser()
-
 class UnitTestB(unittest.TestCase):
-    def __init__(self,testName):
-        unittest.TestCase.__init__(self,testName)
 
     def setUp(self):
-        wait(1)
-        firefox.switchappdirtab()
-        firefox.focus()
-        appdir.page_loaded()
-        installed = appdir.installed_apps()
-        iconimages = list()
+        self.firefox = Firefox()
+        self.firefox.switchappdirtab()
+        
+        self.appdir = AppDir(self.firefox)
+        self.appdir.page_loaded()
+        self.myapps = MyApps(self.firefox)
+
+        self.installable = self.appdir.installable_apps()
+        self.installed = self.appdir.installed_apps()
+        self.system = ConstructBox()
+
+    def tearDown(self):
+        self.firefox.switchappdirtab()
+        installed = self.appdir.installed_apps()
+        iconimages = []
         for app in installed:
            iconimages.append(app.iconimage())
+        
         if len(iconimages) > 0:
-          firefox.gotodashboard()
-          myapps.page_loaded()
-          system.nativedirdeleteapps()       
+          self.firefox.gotodashboard()
+          self.myapps.page_loaded()
           for icon in iconimages: 
-             myapps.delete(icon)
+              self.myapps.delete(icon)
+          self.system.nativedirdeleteapps()
+        
+        self.firefox.close()
 
-        firefox.switchappdirtab()
-        appdir.page_loaded()
-        self.installable = appdir.installable_apps()
-        self.installed = appdir.installed_apps()
-   
-    def testInstallA(self):
-        self.installable[0].installregion().click(system.images("Install.png"))
-        click("images/install_accept.png")
-        firefox.reload()
+    def testInstallAppDir(self):
+        self.installable[0].installregion().click(self.system.images("Install.png"))
+        click(self.system.images("install_accept.png"))
+        self.firefox.reload()
         self.assertTrue(self.installable[0].installed())
    
-    def testInstallB(self):
-        self.installable = appdir.installable_apps()
-        self.installable[0].installregion().click(system.images("Install.png"))
-        click("images/install_accept.png")
-        firefox.reload()
-        self.installed = appdir.installed_apps()
+    def testSingleNativeInstall(self):
+        self.installable = self.appdir.installable_apps()
+        self.installable[0].installregion().click(self.system.images("Install.png"))
+        click(self.system.images("install_accept.png"))
+        self.firefox.reload()
+        self.installed = self.appdir.installed_apps()
         img = self.installed[0].iconimage()
         img = desktopsize(img)
-        print img
-        system.nativediropen()
+        self.system.nativediropen()
         wait(1)
         find(img).highlight(2)
         assert exists(img)
     
-    def testInstallC(self):
-        firefox.focus()
-        self.installable[3].installregion().click(system.images("Install.png"))
-        click("images/install_accept.png")
-        self.installable[4].installregion().click(system.images("Install.png"))
-        click("images/install_accept.png")
-        firefox.reload()
-        self.installed = appdir.installed_apps()
+    def testTwoNativeAppInstalls(self):
+        self.installable[3].installregion().click(self.system.images("Install.png"))
+        click(self.system.images("install_accept.png"))
+        self.installable[4].installregion().click(self.system.images("Install.png"))
+        click(self.system.images("install_accept.png"))
+        self.firefox.reload()
+        self.installed = self.appdir.installed_apps()
         img3 = desktopsize(self.installed[0].iconimage())
         img4 = desktopsize(self.installed[1].iconimage())
-        system.nativediropen()
+        self.system.nativediropen()
         assert exists(img3)    
         assert exists(img4) 

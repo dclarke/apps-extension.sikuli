@@ -1,4 +1,4 @@
-class UnitTestB(unittest.TestCase):
+class BasicInstallTest(unittest.TestCase):
 
     def setUp(self):
         self.firefox = Firefox()

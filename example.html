@@ -95,7 +95,7 @@ execfile(PATH + <span class="str">'loader.py'</span>)
 
 importfiles(PATH, SEPARATOR)
 
-SUITE = unittest.TestLoader().loadTestsFromTestCase(UnitTestB) <span class="cmt"># see comment</span>
+SUITE = unittest.TestLoader().loadTestsFromTestCase(BasicInstallTest) <span class="cmt"># see comment</span>
 unittest.TextTestRunner(verbosity=<span class="dig">2</span>).run(SUITE)
 
 Settings.MoveMouseDelay = mmd <span class="cmt"># reset to original value</span>

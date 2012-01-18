@@ -31,7 +31,7 @@
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            >libs</th>
+            >apidocs</th>
           </tr></table></th>
   </tr>
 </table>
@@ -83,7 +83,8 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="__init__"></a><span class="summary-sig-name">__init__</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a name="__init__"></a><span class="summary-sig-name">__init__</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Constructs a Firefox application instance and loads the application.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="firefox-pysrc.html#Firefox.__init__">source&nbsp;code</a></span>
             
@@ -99,10 +100,11 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="loadbrowser"></a><span class="summary-sig-name">loadbrowser</span>(<span class="summary-sig-arg">self</span>)</span><br />
-      Load browser, attempts to load the firefox browser</td>
+          <td><span class="summary-sig"><a href="firefox.Firefox-class.html#start_browser" class="summary-sig-name">start_browser</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Starts up the browser if it hasn't already started and waits until it
+      is loaded.</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="firefox-pysrc.html#Firefox.loadbrowser">source&nbsp;code</a></span>
+            <span class="codelink"><a href="firefox-pysrc.html#Firefox.start_browser">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -117,7 +119,8 @@
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a name="focus"></a><span class="summary-sig-name">focus</span>(<span class="summary-sig-arg">self</span>)</span><br />
-      Brings Firefox to the foreground</td>
+      Brings Firefox to the foreground by focusing on the firefox 
+      application.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="firefox-pysrc.html#Firefox.focus">source&nbsp;code</a></span>
             
@@ -133,11 +136,11 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="gotourl"></a><span class="summary-sig-name">gotourl</span>(<span class="summary-sig-arg">self</span>,
+          <td><span class="summary-sig"><a href="firefox.Firefox-class.html#go_to_url" class="summary-sig-name">go_to_url</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">url</span>)</span><br />
-      instructs the browser to go to a url</td>
+      Instructs the browser to go to the specified URL.</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="firefox-pysrc.html#Firefox.gotourl">source&nbsp;code</a></span>
+            <span class="codelink"><a href="firefox-pysrc.html#Firefox.go_to_url">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -214,6 +217,31 @@
     </td>
   </tr>
 </table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="STARTUP_TIMEOUT"></a><span class="summary-name">STARTUP_TIMEOUT</span> = <code title="10">10</code>
+    </td>
+  </tr>
+</table>
 <!-- ==================== METHOD DETAILS ==================== -->
 <a name="section-MethodDetails"></a>
 <table class="details" border="1" cellpadding="3"
@@ -232,6 +260,49 @@
   </td>
 </tr>
 </table>
+<a name="start_browser"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">start_browser</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="firefox-pysrc.html#Firefox.start_browser">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Starts up the browser if it hasn't already started and waits until it 
+  is loaded.</p>
+  <p>Raises: TimeoutStartupError: If firefox fails to startup within ten 
+  seconds</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="go_to_url"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">go_to_url</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">url</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="firefox-pysrc.html#Firefox.go_to_url">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Instructs the browser to go to the specified URL.</p>
+  <p>Arguments: url: The url to go to</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
 <a name="gotodashboard"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
@@ -274,14 +345,14 @@
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            >libs</th>
+            >apidocs</th>
           </tr></table></th>
   </tr>
 </table>
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Tue Jan 17 15:30:37 2012
+    Generated by Epydoc 3.0.1 on Tue Jan 17 17:10:01 2012
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

@@ -57,8 +57,6 @@ class Firefox:
         Arguments:
             url: The url to go to
         """
-        print "Going to URL: " + url
-        
         if(self._system.mach == 'mac'):
             type("l", KEY_CMD)
         else:

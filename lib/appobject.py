@@ -12,7 +12,7 @@ class AppObject:
         self.y = 0
    
     def __repr__(self):
-        return 
+        return
  
     def topleft(self,name,region):
         """ Attempts to set x, and y coordinates of the application, based upon the region you are passing in. 

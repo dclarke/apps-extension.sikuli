@@ -2,9 +2,11 @@ from pprint import pprint
 from operator import itemgetter, attrgetter
 
 class AppDir:
-    """ An AppDir object is an object representation of https://apps.mozillalabs.com/appdir
-        The purpose of the object is to be able to dissect the page and determine what is installed
     """
+    An AppDir object is an object representation of https://apps.mozillalabs.com/appdir.
+    The purpose of the object is to be able to dissect the page and determine what is installed.
+    """
+
     def __init__(self, app):
         """ AppDir constructor sets the page url, and takes an application object.  
             It allows for the AppDir to make calls into the firefox application to make sure 
@@ -28,9 +30,9 @@ class AppDir:
         install_icons = list(findAll(self._system.images("Install.png")))
         for icon in install_icons:
             tempApp = AppObject()
-            tempApp.topleft("Install Button",icon)
+            tempApp.topleft("Install Button", icon)
             self._applications.append(tempApp)
-        self._applications = sorted(self._applications,key=attrgetter('y','x'))
+        self._applications = sorted(self._applications, key=attrgetter('y', 'x'))
         return self._applications
 
     def installed_apps(self):
@@ -46,12 +48,12 @@ class AppDir:
         for icon in installed_icons:
             icon.highlight(2)
             tempApp = AppObject()
-            tempApp.topleft("Installed",icon)
+            tempApp.topleft("Installed", icon)
             self._installedapps.append(tempApp)
-        self._installedapps = sorted(self._installedapps,key=attrgetter('y','x'))
+        self._installedapps = sorted(self._installedapps, key=attrgetter('y', 'x'))
         return self._installedapps
 
-    def is_installed(self,appname):
+    def is_installed(self, appname):
         """Checks to see if an app is installed"""
         app.focus()
         try: 

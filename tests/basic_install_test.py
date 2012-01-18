@@ -3,8 +3,8 @@ class BasicInstallTest(unittest.TestCase):
     def setUp(self):
         self.firefox = Firefox()
         self.firefox.switchappdirtab()
-        
-        self.appdir = AppDir(self.firefox)
+
+        self.appdir = AppDir()
         self.appdir.page_loaded()
         self.myapps = MyApps(self.firefox)
 
@@ -25,8 +25,6 @@ class BasicInstallTest(unittest.TestCase):
           for icon in iconimages: 
               self.myapps.delete(icon)
           self.system.nativedirdeleteapps()
-        
-        self.firefox.close()
 
     def testInstallAppDir(self):
         self.installable[0].installregion().click(self.system.images("Install.png"))
@@ -45,7 +43,7 @@ class BasicInstallTest(unittest.TestCase):
         self.system.nativediropen()
         wait(1)
         find(img).highlight(2)
-        assert exists(img)
+        self.assertTrue(exists(img))
     
     def testTwoNativeAppInstalls(self):
         self.installable[3].installregion().click(self.system.images("Install.png"))
@@ -57,5 +55,4 @@ class BasicInstallTest(unittest.TestCase):
         img3 = desktopsize(self.installed[0].iconimage())
         img4 = desktopsize(self.installed[1].iconimage())
         self.system.nativediropen()
-        assert exists(img3)    
-        assert exists(img4) 
+        self.assertTrue(exists(img3) and exists(img4))

@@ -143,9 +143,11 @@ class UnsuppportedOSError(Exception):
 
 
 class ConstructOSBox(object):
-    """  A call to the System class anywhere should return an object
-       that is tailored to return operating system dependent data
+    """ 
+    A call to the System class anywhere should return an object
+    that is tailored to return operating system dependent data
     """
+    
     OS_BOXES = {
         'Linux': LinOSBox,
         'Windows': WinOSBox,

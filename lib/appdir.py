@@ -1,3 +1,12 @@
+"""
+File: appdir.py
+
+Author: David Clarke
+Contributor(s): Jason Smith
+
+Date: 1/18/2012
+"""
+
 from pprint import pprint
 from operator import itemgetter, attrgetter
 
@@ -7,13 +16,12 @@ class AppDir:
     The purpose of the object is to be able to dissect the page and determine what is installed.
     """
 
-    def __init__(self, app):
+    def __init__(self):
         """ 
         AppDir constructor sets the page url, and takes an application object.  
         It allows for the AppDir to make calls into the firefox application to make sure 
         that the correct page is loaded, the browser is focused..etc.
         """
-        self._app = app
         self._url = "https://apps.mozillalabs.com/appdir"
         self._system = ConstructOSBox()
         self._applications = []
@@ -27,19 +35,24 @@ class AppDir:
         wait(self._system.images("appsvisible.png"), 10)
 
     def installable_apps(self):
-        """ Find all the apps that are not installed"""
+        """
+        Find all the apps that are not installed.
+        """
         self._applications = list()
-        
+
         install_icons = list(findAll(self._system.images("Install.png")))
         for icon in install_icons:
             tempApp = AppObject()
             tempApp.topleft("Install Button", icon)
             self._applications.append(tempApp)
+
         self._applications = sorted(self._applications, key=attrgetter('y', 'x'))
         return self._applications
 
     def installed_apps(self):
-        """Finds alls the apps that are currently installed"""
+        """
+        Finds alls the apps that are currently installed.
+        """
         installed_icons = None
         self._installedapps = list()
         try:
@@ -57,9 +70,13 @@ class AppDir:
         return self._installedapps
 
     def is_installed(self, appname):
-        """Checks to see if an app is installed"""
-        app.focus()
-        try: 
+        """
+        Checks to see if an app is installed.
+        
+        Arguments:
+            appname: The name of the app to check if it's installed or not
+        """
+        try:
             this.page_loaded()
         except FindFailed:
             app.gotourl(self.url())

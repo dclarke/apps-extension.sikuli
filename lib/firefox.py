@@ -13,7 +13,7 @@ class Firefox:
         """
         Constructs a Firefox application instance and loads the application.
         """
-        self._system = ConstructBox()
+        self._system = ConstructOSBox()
         self.start_browser()
         self.maximize()
 

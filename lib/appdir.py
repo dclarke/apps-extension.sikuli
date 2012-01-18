@@ -8,18 +8,21 @@ class AppDir:
     """
 
     def __init__(self, app):
-        """ AppDir constructor sets the page url, and takes an application object.  
-            It allows for the AppDir to make calls into the firefox application to make sure 
-            that the correct page is loaded, the browser is focused..etc.
+        """ 
+        AppDir constructor sets the page url, and takes an application object.  
+        It allows for the AppDir to make calls into the firefox application to make sure 
+        that the correct page is loaded, the browser is focused..etc.
         """
         self._app = app
         self._url = "https://apps.mozillalabs.com/appdir"
-        self._system = ConstructBox()
+        self._system = ConstructOSBox()
         self._applications = []
         self._installedapps = []
 
     def page_loaded(self):
-        """ Waits for the main image on the page to load before returning"""
+        """
+        Waits for the main image on the page to load before returning.
+        """
         wait(self._system.images("demoapps.png"), 10)
         wait(self._system.images("appsvisible.png"), 10)
 

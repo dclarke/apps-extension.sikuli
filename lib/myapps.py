@@ -4,7 +4,7 @@ class MyApps:
         """ initialize the myapp object """
         self.url = "https://myapps.mozillalabs.com/"
         self.app = app
-        self.system = ConstructBox()
+        self.system = ConstructOSBox()
 
     def page_loaded(self):
         """Reloads the dashboard """

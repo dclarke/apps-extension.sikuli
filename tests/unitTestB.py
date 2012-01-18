@@ -10,7 +10,7 @@ class UnitTestB(unittest.TestCase):
 
         self.installable = self.appdir.installable_apps()
         self.installed = self.appdir.installed_apps()
-        self.system = ConstructBox()
+        self.system = ConstructOSBox()
 
     def tearDown(self):
         self.firefox.switchappdirtab()

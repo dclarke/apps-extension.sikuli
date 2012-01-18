@@ -7,9 +7,11 @@ import os
 
 class Box(object):
     """ Base class representation for all machines """
+
     FIREFOX_APP_NAME = None
 
     def __init__(self):
+        """ Box implmenets methods that are shared across all operating systems """
         self.mach = "unknown"
 
     def images(self, filename):
@@ -22,6 +24,7 @@ class Box(object):
 
 class MacBox(Box):
     """ A MacBox object will contain functions that are mac specific """
+
     FIREFOX_APP_NAME = 'Firefox'
     
     def __init__(self):
@@ -30,9 +33,11 @@ class MacBox(Box):
         self.mach = "mac"
 
     def nativediropen(self):
-        """nativediropen: will open the directory where the native application is installed
+        """will open the directory where the native application is installed
+         
          this can be used in conjunction with the vision processing inside sikuli to verify 
          an application was installed
+        
         """
         subprocess.call(["open", self.home])
 
@@ -45,6 +50,7 @@ class MacBox(Box):
         return super(MacBox, self).images(filename)
 
     def firefoxLocation(self):
+        """ returns the full path of firefox on Mac """
         if(os.path.isdir('/Applications/Firefox.app/Contents/MacOS')):
             return '/Applications/Firefox.app/Contents/MacOS/firefox-bin'
         else:
@@ -64,6 +70,7 @@ class MacBox(Box):
 class WinError(Exception):
     """
     Error to indicate a windows-specific issue, such as finding windows-specific icons.
+    
     """
     pass
 
@@ -105,7 +112,8 @@ class WinBox(Box):
         Maximizes the specified application utilizing the windows maximize icon if it exists.
         
         Arguments:
-            app: The application to maximize
+        app: The application to maximize
+
         """
         # XXX: Need to maximize against the particular app region
         maxButton = self.images(WinBox.MAXIMIZE_BUTTON)
@@ -139,8 +147,8 @@ class UnsuppportedOSError(Exception):
 
 
 class ConstructBox(object):
-    """  A call to the System class anywhere should return an object
-       that is tailored to return operating system dependent data
+    """  A call to the ConstructBox class returns an object that is tailored to 
+         return operating system dependent data
     """
     OS_BOXES = {
         'Linux': LinBox,

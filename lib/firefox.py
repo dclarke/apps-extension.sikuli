@@ -18,11 +18,11 @@ class Firefox:
         self.maximize()
 
     def start_browser(self):
-        """
-        Starts up the browser if it hasn't already started and waits until it is loaded.
+        """ Starts up the browser if it hasn't already started and waits until it is loaded.
         
         Raises:
-            TimeoutStartupError: If firefox fails to startup within ten seconds
+        TimeoutStartupError: If firefox fails to startup within ten seconds
+
         """
         self._location = self._system.firefoxLocation()
         self._firefox = App(self._system.FIREFOX_APP_NAME)
@@ -55,7 +55,8 @@ class Firefox:
         Instructs the browser to go to the specified URL.
         
         Arguments:
-            url: The url to go to
+        url: The url to go to
+
         """
         print "Going to URL: " + url
         

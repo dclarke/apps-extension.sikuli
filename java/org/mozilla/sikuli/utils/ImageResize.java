@@ -55,10 +55,8 @@ public class ImageResize {
 	 * Resizes the image speciifed to the type specified with the constant width
 	 * and height.
 	 * 
-	 * @param originalImage
-	 *            the original image to be resized
-	 * @param type
-	 *            the type of the existing image
+	 * @param originalImage the original image to be resized
+	 * @param type the type of the existing image
 	 * 
 	 * @return the resized image
 	 */
@@ -78,8 +76,7 @@ public class ImageResize {
 	 * Test method to verify that the image specified on the command line can be
 	 * resized.
 	 * 
-	 * @param argv
-	 *            [0] the file location of the image to resize
+	 * @param argv[0] the file location of the image to resize
 	 */
 	public static void main(String[] argv) {
 		if (argv.length == 1) {

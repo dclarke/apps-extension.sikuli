@@ -61,10 +61,13 @@ class AppObject:
 
     def name(self, expected):
         """
-        You can only verify the expected name, sikuli doesn't return the OCR,
-        you can only verify against an expected value.
+        Finds the name of the application and returns it.
         
-        TODO: What does this method actually do?
+        Arguments:
+            expected: (needs to be defined?)
+        
+        Returns:
+            The name of the application.
         """
         region = nameregion()
         name = None
@@ -74,7 +77,7 @@ class AppObject:
             
         return name
 
-    def installregion(self):
+    def install_region(self):
         """
         Returns a region that contains the install button for this app.
         
@@ -100,9 +103,10 @@ class AppObject:
   
     def iconimage(self):
         """
-        Stores the region image in a file, and returns the location. 
-        This technique is good when you want to compare images across
-        multiple pages.
+        Stores the region image in a file.
+
+        Returns:
+            The filepath to the image file generated from the region
         """
         return capture(self.iconregion())
    

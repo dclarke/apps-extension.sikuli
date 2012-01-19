@@ -43,6 +43,7 @@ class AppDirPage:
         self._applications = list()
 
         install_icons = list(findAll(self._system.images(AppDirPage.INSTALL_IMG)))
+
         for icon in install_icons:
             tempApp = AppObject()
             tempApp.topleft("Install Button", icon)
@@ -80,18 +81,3 @@ class AppDirPage:
             installed_apps.append(temp_app)
 
         return sorted(installed_apps, key=attrgetter('y', 'x'))
-
-    # Disabled, as it is not be used and needs to be cleaned up
-    """def is_installed(self, appname):
-        try:
-            this.page_loaded()
-        except FindFailed:
-            app.gotourl(self.url())
-            this.page_loaded()
-        try: 
-            appRegion = find(appname)
-            tempApp = AppObject()
-            tempApp.topleft("App Name", appRegion)
-            return tempApp.installed()
-        except FindFailed:
-            return false"""

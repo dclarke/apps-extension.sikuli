@@ -52,7 +52,7 @@ class BasicInstallTest(unittest.TestCase):
         Installs the first application on the application directory
         page, reloads it, and verifies the application is still installed.
         """
-        self.installable[0].installregion().click(self.system.images("Install.png"))
+        self.installable[0].install_region().click(self.system.images("Install.png"))
         click(self.system.images("install_accept.png"))
         self.firefox.reload()
         self.assertTrue(self.installable[0].installed())
@@ -63,7 +63,7 @@ class BasicInstallTest(unittest.TestCase):
         page, reloads it, and checks if the native desktop has it
         installed.
         """
-        self.installable[0].installregion().click(self.system.images("Install.png"))
+        self.installable[0].install_region().click(self.system.images("Install.png"))
         click(self.system.images("install_accept.png"))
 
         self.firefox.reload()
@@ -80,9 +80,9 @@ class BasicInstallTest(unittest.TestCase):
         reloads it, and checks if the native desktop has both
         applications installed.
         """
-        self.installable[3].installregion().click(self.system.images("Install.png"))
+        self.installable[3].install_region().click(self.system.images("Install.png"))
         click(self.system.images("install_accept.png"))
-        self.installable[4].installregion().click(self.system.images("Install.png"))
+        self.installable[4].install_region().click(self.system.images("Install.png"))
         click(self.system.images("install_accept.png"))
 
         self.firefox.reload()

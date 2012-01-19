@@ -9,21 +9,18 @@ Date: 1/18/2012
 
 class MyAppsPage:
     """ MyApps class creates a page object model """
+    URL = "https://myapps.mozillalabs.com/"
 
     def __init__(self, app):
         """ initialize the myapp object """
-        self.url = "https://myapps.mozillalabs.com/"
-        self.app = app
         self.system = ConstructOSBox()
 
     def page_loaded(self):
         """Reloads the dashboard """
-        self.app.reload()
         wait(self.system.images("clicktolaunch.png"), 10)
 
     def delete(self, appimage):
         """ delete an app from the myapps page """
-        self.app.focus()
         self.go()
         self.page_loaded()
         found = find(appimage)

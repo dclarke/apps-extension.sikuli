@@ -19,10 +19,11 @@ class Firefox:
         self.maximize()
 
     def start_browser(self):
-        """ Starts up the browser if it hasn't already started and waits until it is loaded.
+        """
+        Starts up the browser if it hasn't already started and waits until it is loaded.
         
         Raises:
-        TimeoutStartupError: If firefox fails to startup within ten seconds
+            TimeoutStartupError: If firefox fails to startup within ten seconds
 
         """
         self._location = self._system.firefoxLocation()
@@ -56,7 +57,7 @@ class Firefox:
         Instructs the browser to go to the specified URL.
         
         Arguments:
-        url: The url to go to
+            url: The url to go to
 
         """
         if(self._system.mach == 'mac'):
@@ -99,9 +100,10 @@ class Firefox:
             click(self._system.images("mozilla_appdir_tab.png"))
             self.reload()
             return
+
         if(self._system.mach == 'mac'):
             type("t", KEY_CMD) # reload page
         else:
-            type('t', KEY_CTRL) 
-        self.go_to_url('https://apps.mozillalabs.com/appdir')
+            type('t', KEY_CTRL)
 
+        self.go_to_url('https://apps.mozillalabs.com/appdir')

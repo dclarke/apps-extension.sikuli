@@ -6,9 +6,10 @@ class TimeoutStartupError(Exception):
 
 
 class Firefox:
-    """ This class encapsulates actions that occur on the browser """
-    STARTUP_TIMEOUT = 10
-    
+    """
+    This class encapsulates actions that occur on the Firefox browser.
+    """
+
     def __init__(self):
         """
         Constructs a Firefox application instance and loads the application.
@@ -35,7 +36,7 @@ class Firefox:
         time_passed = 0
         
         # Wait until firefox has started for a period of time
-        while(not is_started and time_passed < Firefox.STARTUP_TIMEOUT):
+        while(not is_started and time_passed < IMAGE_LOOKUP_TIMEOUT):
             if self._firefox.window():
                 is_started = True
             wait(1)

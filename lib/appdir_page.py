@@ -1,5 +1,5 @@
 """
-File: appdir.py
+File: appdir_page.py
 
 Author: David Clarke
 Contributor(s): Jason Smith

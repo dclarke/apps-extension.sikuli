@@ -44,7 +44,7 @@ class BasicInstallTest(unittest.TestCase):
         wait(1)
         find(img).highlight(2)
         self.assertTrue(exists(img))
-    
+
     def testTwoNativeAppInstalls(self):
         self.installable[3].installregion().click(self.system.images("Install.png"))
         click(self.system.images("install_accept.png"))

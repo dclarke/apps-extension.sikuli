@@ -1,3 +1,12 @@
+"""
+File: app_page.py
+
+Author: David Clarke
+Contributor(s): Jason Smith
+
+Date: 1/18/2012
+"""
+
 from pprint import pprint
 
 class AppObject:
@@ -54,6 +63,8 @@ class AppObject:
         """
         You can only verify the expected name, sikuli doesn't return the OCR,
         you can only verify against an expected value.
+        
+        TODO: What does this method actually do?
         """
         region = nameregion()
         name = None
@@ -66,18 +77,24 @@ class AppObject:
     def installregion(self):
         """
         Returns a region that contains the install button for this app.
+        
+        TODO: Avoid hardcoding this, needs to be refactored
         """ 
         return Region(self.x + 110, self.y + 70, 100, 30)
 
     def nameregion(self):
         """
         Returns the region that contains the name of the app.
+        
+        TODO: Avoid hardcoding this, needs to be refactored
         """
         return Region(self.x + 110, self.y + 50, 170, 25)
 
     def iconregion(self):
         """
         Returns the 100 x 100 region of the icon.
+
+        TODO: Avoid hardcoding this, needs to be refactored
         """
         return Region(self.x + 10, self.y + 10, 80, 80)
   
@@ -87,8 +104,7 @@ class AppObject:
         This technique is good when you want to compare images across
         multiple pages.
         """
-        foo = self.iconregion()
-        return capture(foo)
+        return capture(self.iconregion())
    
     def installed(self):
         """

@@ -1,6 +1,10 @@
 """
+File: os_box.py
+
 Author: David Clarke
-Contributors: David Clarke, Mohamed Dabbagh, Jason Smith
+Contributor(s): Jason Smith, Mohamed Dabbagh, Jason Smith
+
+Date: 1/18/2012
 """
 
 import subprocess

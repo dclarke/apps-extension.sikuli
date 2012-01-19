@@ -1,5 +1,5 @@
 """
-File: app_page.py
+File: app_object.py
 
 Author: David Clarke
 Contributor(s): Jason Smith

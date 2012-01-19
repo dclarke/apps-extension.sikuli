@@ -1,3 +1,12 @@
+"""
+File: firefox.py
+
+Author: David Clarke
+Contributor(s): Jason Smith
+
+Date: 1/18/2012
+"""
+
 class TimeoutStartupError(Exception):
     """
     Thrown to indicate that firefox failed to startup within a time period.

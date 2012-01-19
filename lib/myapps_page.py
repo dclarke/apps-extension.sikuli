@@ -1,6 +1,7 @@
-class MyApps:
+class MyAppsPage:
     """ MyApps class creates a page object model """
-    def __init__(self,app):
+
+    def __init__(self, app):
         """ initialize the myapp object """
         self.url = "https://myapps.mozillalabs.com/"
         self.app = app
@@ -10,8 +11,8 @@ class MyApps:
         """Reloads the dashboard """
         self.app.reload()
         wait(self.system.images("clicktolaunch.png"), 10)
-      
-    def delete(self,appimage):
+
+    def delete(self, appimage):
         """ delete an app from the myapps page """
         self.app.focus()
         self.go()

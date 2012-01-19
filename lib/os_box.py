@@ -57,10 +57,10 @@ class MacOSBox(OSBox):
         app.focus()
         print self.images("maximize_firefox.png")
         mTL = find(self.images("maximize_firefox.png"))
-        dragDrop(mTL.getCenter().offset(50,0), Location(100,30))
+        dragDrop(mTL.getCenter().offset(50, 0), Location(100, 30))
         mLL = find(self.images("bottom_right.png"))
         reg = Screen(0).getBounds()
-        dragDrop(mLL, Location(reg.width,reg.height-100))
+        dragDrop(mLL, Location(reg.width, reg.height - 100))
 
 class WinError(Exception):
     """
@@ -80,7 +80,7 @@ class WinOSBox(OSBox):
         self.home = os.getenv('APPDATA')
         self.mach = "windows"
   
-    def images(self,filename):
+    def images(self, filename):
         """ images is custom for windows because their slashes are always the wrong way
             essence is to return all the images"""
         return super(WinOSBox, self).images(filename)

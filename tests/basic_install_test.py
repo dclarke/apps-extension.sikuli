@@ -6,7 +6,7 @@ class BasicInstallTest(unittest.TestCase):
 
         self.appdir = AppDirPage()
         self.appdir.page_loaded()
-        self.myapps = MyApps(self.firefox)
+        self.myapps = MyAppsPage(self.firefox)
 
         self.installable = self.appdir.installable_apps()
         self.installed = self.appdir.installed_apps()

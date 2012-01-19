@@ -23,6 +23,7 @@ class OSBox(object):
 
 class MacOSBox(OSBox):
     """ A MacOSBox object will contain functions that are mac specific """
+
     FIREFOX_APP_NAME = 'Firefox'
     
     def __init__(self):
@@ -62,11 +63,13 @@ class MacOSBox(OSBox):
         reg = Screen(0).getBounds()
         dragDrop(mLL, Location(reg.width, reg.height - 100))
 
+
 class WinError(Exception):
     """
     Error to indicate a windows-specific issue, such as finding windows-specific icons.
     """
     pass
+
 
 class WinOSBox(OSBox):
     """ A windows OSBox will contain functions that are windows specific """
@@ -117,8 +120,10 @@ class WinOSBox(OSBox):
         elif(not exists(minButton)):
             raise WinError, "Could not find windows maximize or minimize button on application"
 
+
 class LinOSBox(OSBox):
     """ linuxOSBox is currently untested, but will need to be filled in when appropriate """
+
     def __init__(self):
         super(LinOSBox, self).__init__()
         self.home = os.path.expanduser("~") + "/Applications/"
@@ -143,11 +148,11 @@ class UnsuppportedOSError(Exception):
 
 
 class ConstructOSBox(object):
-    """ 
-    A call to the System class anywhere should return an object
-    that is tailored to return operating system dependent data
     """
-    
+    Factory class used to generate the appropriate OSBox object
+    based on the underlying operating system being used.
+    """
+
     OS_BOXES = {
         'Linux': LinOSBox,
         'Windows': WinOSBox,
@@ -155,6 +160,21 @@ class ConstructOSBox(object):
     }
 
     def __new__(cls):
+        """
+        Factory method to generate the appropriate OSBox instance
+        based on the underlying OS this framework is being ran on
+        
+        Arguments:
+            cls (ignored)
+        
+        Returns:
+            A OSBox appropriate to the OS this framework is running on if it
+            exists.
+
+        Throws:
+            UnsupportedOSError: If the OS this framework is being ran on is
+            known to be unsupported.
+        """
         name = str(MYOS).capitalize()
         
         if name in ConstructOSBox.OS_BOXES:

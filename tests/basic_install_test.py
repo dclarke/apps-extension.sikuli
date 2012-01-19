@@ -51,6 +51,7 @@ class BasicInstallTest(unittest.TestCase):
         self.installable[4].installregion().click(self.system.images("Install.png"))
         click(self.system.images("install_accept.png"))
         self.firefox.reload()
+        self.appdir.page_loaded()
         self.installed = self.appdir.installed_apps()
         img3 = desktopsize(self.installed[0].iconimage())
         img4 = desktopsize(self.installed[1].iconimage())

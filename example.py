@@ -2,6 +2,7 @@
 
 import unittest
 
+setAutoWaitTimeout(10)
 
 mmd = Settings.MoveMouseDelay
 Settings.MouseMoveDelay = 2

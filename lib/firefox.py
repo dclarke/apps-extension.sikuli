@@ -46,7 +46,7 @@ class Firefox:
         time_passed = 0
         
         # Wait until firefox has started for a period of time
-        while(not is_started and time_passed < IMAGE_LOOKUP_TIMEOUT):
+        while(not is_started and time_passed < 10):
             if self._firefox.window():
                 is_started = True
             wait(1)

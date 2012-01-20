@@ -33,8 +33,8 @@ class AppDirPage:
         """
         Waits for the main image on the page to load before returning.
         """
-        wait(self._system.images(AppDirPage.DEMO_APPS_IMG), IMAGE_LOOKUP_TIMEOUT)
-        wait(self._system.images(AppDirPage.APPS_VISIBLE_IMG), IMAGE_LOOKUP_TIMEOUT)
+        wait(self._system.images(AppDirPage.DEMO_APPS_IMG))
+        wait(self._system.images(AppDirPage.APPS_VISIBLE_IMG))
 
     def installable_apps(self):
         """

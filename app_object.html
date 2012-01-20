@@ -1,0 +1,84 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module app_object</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>app_object</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:///C:/users/jsmith/git/apps-extension.sikuli/lib/app_object.py">c:\users\jsmith\git\apps-extension.sikuli\lib\app_object.py</a></font></td></tr></table>
+    <p><tt>File:&nbsp;app_object.py<br>
+&nbsp;<br>
+Author:&nbsp;David&nbsp;Clarke<br>
+Contributor(s):&nbsp;Jason&nbsp;Smith<br>
+&nbsp;<br>
+Date:&nbsp;1/18/2012</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="app_object.html#AppObject">AppObject</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="AppObject">class <strong>AppObject</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#AppObject">AppObject</a>&nbsp;encapsulates&nbsp;the&nbsp;visual&nbsp;representation&nbsp;for&nbsp;an&nbsp;app&nbsp;on&nbsp;the<br>
+https://apps.mozillalabs.com/appdir&nbsp;page.&nbsp;It&nbsp;breaks&nbsp;down&nbsp;an&nbsp;app&nbsp;into<br>
+a&nbsp;name,&nbsp;install_icon,&nbsp;nameregion,&nbsp;icon..etc<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="AppObject-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Initialization,&nbsp;unknown&nbsp;coordinates,&nbsp;of&nbsp;the&nbsp;application&nbsp;object&nbsp;<br>
+x,y&nbsp;are&nbsp;considered&nbsp;the&nbsp;top&nbsp;left&nbsp;corner&nbsp;of&nbsp;the&nbsp;application&nbsp;object</tt></dd></dl>
+
+<dl><dt><a name="AppObject-iconimage"><strong>iconimage</strong></a>(self)</dt><dd><tt>Stores&nbsp;the&nbsp;region&nbsp;image&nbsp;in&nbsp;a&nbsp;file.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;filepath&nbsp;to&nbsp;the&nbsp;image&nbsp;file&nbsp;generated&nbsp;from&nbsp;the&nbsp;region</tt></dd></dl>
+
+<dl><dt><a name="AppObject-iconregion"><strong>iconregion</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;100&nbsp;x&nbsp;100&nbsp;region&nbsp;of&nbsp;the&nbsp;icon.<br>
+&nbsp;<br>
+TODO:&nbsp;Avoid&nbsp;hardcoding&nbsp;this,&nbsp;needs&nbsp;to&nbsp;be&nbsp;refactored</tt></dd></dl>
+
+<dl><dt><a name="AppObject-install_region"><strong>install_region</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;region&nbsp;that&nbsp;contains&nbsp;the&nbsp;install&nbsp;button&nbsp;for&nbsp;this&nbsp;app.<br>
+&nbsp;<br>
+TODO:&nbsp;Avoid&nbsp;hardcoding&nbsp;this,&nbsp;needs&nbsp;to&nbsp;be&nbsp;refactored</tt></dd></dl>
+
+<dl><dt><a name="AppObject-installed"><strong>installed</strong></a>(self)</dt><dd><tt>Finds&nbsp;if&nbsp;an&nbsp;app&nbsp;is&nbsp;installed&nbsp;by&nbsp;checking&nbsp;on&nbsp;apps.mozillalabs.com/appdir<br>
+page.</tt></dd></dl>
+
+<dl><dt><a name="AppObject-name"><strong>name</strong></a>(self, expected)</dt><dd><tt>Finds&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;application&nbsp;and&nbsp;returns&nbsp;it.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;expected:&nbsp;(needs&nbsp;to&nbsp;be&nbsp;defined?)<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;application.</tt></dd></dl>
+
+<dl><dt><a name="AppObject-nameregion"><strong>nameregion</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;region&nbsp;that&nbsp;contains&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;app.<br>
+&nbsp;<br>
+TODO:&nbsp;Avoid&nbsp;hardcoding&nbsp;this,&nbsp;needs&nbsp;to&nbsp;be&nbsp;refactored</tt></dd></dl>
+
+<dl><dt><a name="AppObject-topleft"><strong>topleft</strong></a>(self, name, region)</dt><dd><tt>Attempts&nbsp;to&nbsp;set&nbsp;x,&nbsp;and&nbsp;y&nbsp;coordinates&nbsp;of&nbsp;the&nbsp;application,&nbsp;based&nbsp;upon<br>
+the&nbsp;region&nbsp;you&nbsp;are&nbsp;passing&nbsp;in.&nbsp;If&nbsp;you&nbsp;have&nbsp;the&nbsp;"Install&nbsp;Button"<br>
+then&nbsp;you&nbsp;can&nbsp;work&nbsp;backwards&nbsp;and&nbsp;find&nbsp;the&nbsp;top&nbsp;left&nbsp;for&nbsp;the&nbsp;application<br>
+object.&nbsp;Once&nbsp;you&nbsp;have&nbsp;the&nbsp;top&nbsp;left,&nbsp;all&nbsp;the&nbsp;other&nbsp;positioning&nbsp;is&nbsp;known.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;region&nbsp;name&nbsp;being&nbsp;looked&nbsp;for<br>
+&nbsp;&nbsp;&nbsp;&nbsp;region:&nbsp;The&nbsp;region&nbsp;to&nbsp;analyze&nbsp;to&nbsp;find&nbsp;the&nbsp;app<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;True&nbsp;if&nbsp;the&nbsp;application&nbsp;was&nbsp;found&nbsp;in&nbsp;the&nbsp;region,&nbsp;False&nbsp;otherwise</tt></dd></dl>
+
+</td></tr></table></td></tr></table>
+</body></html>

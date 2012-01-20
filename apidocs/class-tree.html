@@ -31,7 +31,7 @@
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            >apidocs</th>
+            >apps-extension.sikuli</th>
           </tr></table></th>
   </tr>
 </table>
@@ -57,21 +57,19 @@
 </b></center><br />
 <h1 class="epydoc">Class Hierarchy</h1>
 <ul class="nomargin-top">
-    <li> <strong class="uidlink"><a href="appdir.AppDir-class.html">appdir.AppDir</a></strong>:
-      <em class="summary">An AppDir object is an object representation of 
-        https://apps.mozillalabs.com/appdir The purpose of the object is to
-        be able to dissect the page and determine what is installed</em>
+    <li> <strong class="uidlink"><a href="appdir_page.AppDirPage-class.html">appdir_page.AppDirPage</a></strong>:
+      <em class="summary">An AppDir object is an object representation of https://apps.mozillalabs.com/appdir.</em>
     </li>
-    <li> <strong class="uidlink"><a href="appobject.AppObject-class.html">appobject.AppObject</a></strong>:
-      <em class="summary">AppObject tries to encapsulate the visual representation for an app
-        on apps.mozillalabs.com/appdir page It breaks down an app into a 
-        name, install_icon, nameregion, icon..etc</em>
+    <li> <strong class="uidlink"><a href="app_object.AppObject-class.html">app_object.AppObject</a></strong>:
+      <em class="summary">AppObject encapsulates the visual representation for an app on the
+https://apps.mozillalabs.com/appdir page.</em>
     </li>
     <li> <strong class="uidlink"><a href="firefox.Firefox-class.html">firefox.Firefox</a></strong>:
-      <em class="summary">This class encapsulates actions that occur on the browser</em>
+      <em class="summary">This class encapsulates actions that occur on the Firefox browser.</em>
     </li>
-    <li> <strong class="uidlink"><a href="myapps.MyApps-class.html">myapps.MyApps</a></strong>:
-      <em class="summary">MyApps class creates a page object model</em>
+    <li> <strong class="uidlink"><a href="myapps_page.MyAppsPage-class.html">myapps_page.MyAppsPage</a></strong>:
+      <em class="summary">Represents the My Applications Web Page at the below URL specified
+in the constant.</em>
     </li>
     <li> <strong class="uidlink">object</strong>:
       <em class="summary">The most base type</em>
@@ -82,38 +80,39 @@
     <li> <strong class="uidlink">exceptions.Exception</strong>:
       <em class="summary">Common base class for all non-exit exceptions.</em>
     <ul>
+    <li> <strong class="uidlink"><a href="myapps_page.ApplicationNotFoundError-class.html">myapps_page.ApplicationNotFoundError</a></strong>:
+      <em class="summary">Thrown to indicate that the application image specified was not found.</em>
+    </li>
     <li> <strong class="uidlink"><a href="firefox.TimeoutStartupError-class.html">firefox.TimeoutStartupError</a></strong>:
-      <em class="summary">Thrown to indicate that firefox failed to startup within a time 
-        period.</em>
+      <em class="summary">Thrown to indicate that firefox failed to startup within a time period.</em>
     </li>
-    <li> <strong class="uidlink"><a href="constructbox.UnsuppportedOSError-class.html">constructbox.UnsuppportedOSError</a></strong>
+    <li> <strong class="uidlink"><a href="os_box.UnsuppportedOSError-class.html">os_box.UnsuppportedOSError</a></strong>:
+      <em class="summary">Thrown to indicate that the OS running is not supported.</em>
     </li>
-    <li> <strong class="uidlink"><a href="constructbox.WinError-class.html">constructbox.WinError</a></strong>:
-      <em class="summary">Error to indicate a windows-specific issue, such as finding 
-        windows-specific icons.</em>
-    </li>
-    </ul>
+    <li> <strong class="uidlink"><a href="os_box.WinError-class.html">os_box.WinError</a></strong>:
+      <em class="summary">Error to indicate a windows-specific issue, such as finding windows-specific icons.</em>
     </li>
     </ul>
     </li>
-    <li> <strong class="uidlink"><a href="constructbox.Box-class.html">constructbox.Box</a></strong>:
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="os_box.ConstructOSBox-class.html">os_box.ConstructOSBox</a></strong>:
+      <em class="summary">Factory class used to generate the appropriate OSBox object
+based on the underlying operating system being used.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="os_box.OSBox-class.html">os_box.OSBox</a></strong>:
       <em class="summary">Base class representation for all machines</em>
     <ul>
-    <li> <strong class="uidlink"><a href="constructbox.LinBox-class.html">constructbox.LinBox</a></strong>:
-      <em class="summary">linuxbox is currently untested, but will need to be filled in when 
-        appropriate</em>
+    <li> <strong class="uidlink"><a href="os_box.LinOSBox-class.html">os_box.LinOSBox</a></strong>:
+      <em class="summary">linuxOSBox is currently untested, but will need to be filled in when appropriate</em>
     </li>
-    <li> <strong class="uidlink"><a href="constructbox.MacBox-class.html">constructbox.MacBox</a></strong>:
-      <em class="summary">A MacBox object will contain functions that are mac specific</em>
+    <li> <strong class="uidlink"><a href="os_box.MacOSBox-class.html">os_box.MacOSBox</a></strong>:
+      <em class="summary">A MacOSBox object will contain functions that are mac specific</em>
     </li>
-    <li> <strong class="uidlink"><a href="constructbox.WinBox-class.html">constructbox.WinBox</a></strong>:
-      <em class="summary">A windows box will contain functions that are windows specific</em>
+    <li> <strong class="uidlink"><a href="os_box.WinOSBox-class.html">os_box.WinOSBox</a></strong>:
+      <em class="summary">A windows OSBox will contain functions that are windows specific</em>
     </li>
     </ul>
-    </li>
-    <li> <strong class="uidlink"><a href="constructbox.ConstructBox-class.html">constructbox.ConstructBox</a></strong>:
-      <em class="summary">A call to the ConstructBox class returns an object that is tailored
-        to return operating system dependent data</em>
     </li>
     </ul>
     </li>
@@ -139,14 +138,14 @@
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            >apidocs</th>
+            >apps-extension.sikuli</th>
           </tr></table></th>
   </tr>
 </table>
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Tue Jan 17 23:13:06 2012
+    Generated by Epydoc 3.0.1 on Thu Jan 19 19:04:26 2012
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

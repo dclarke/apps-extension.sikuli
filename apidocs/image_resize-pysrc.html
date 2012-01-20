@@ -3,7 +3,7 @@
           "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Module Hierarchy</title>
+  <title>image_resize</title>
   <link rel="stylesheet" href="epydoc.css" type="text/css" />
   <script type="text/javascript" src="epydoc.js"></script>
 </head>
@@ -16,8 +16,8 @@
   <tr valign="middle">
 
   <!-- Tree link -->
-      <th bgcolor="#70b0f0" class="navbar-select"
-          >&nbsp;&nbsp;&nbsp;Trees&nbsp;&nbsp;&nbsp;</th>
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Index link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -37,7 +37,11 @@
 </table>
 <table width="100%" cellpadding="0" cellspacing="0">
   <tr valign="top">
-    <td width="100%">&nbsp;</td>
+    <td width="100%">
+      <span class="breadcrumbs">
+        Module&nbsp;image_resize
+      </span>
+    </td>
     <td>
       <table cellpadding="0" cellspacing="0">
         <!-- hide/show private -->
@@ -45,33 +49,42 @@
     onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
         <tr><td align="right"><span class="options"
             >[<a href="frames.html" target="_top">frames</a
-            >]&nbsp;|&nbsp;<a href="module-tree.html"
+            >]&nbsp;|&nbsp;<a href="image_resize-pysrc.html"
             target="_top">no&nbsp;frames</a>]</span></td></tr>
       </table>
     </td>
   </tr>
 </table>
-<center><b>
- [ <a href="module-tree.html">Module Hierarchy</a>
- | <a href="class-tree.html">Class Hierarchy</a> ]
-</b></center><br />
-<h1 class="epydoc">Module Hierarchy</h1>
-<ul class="nomargin-top">
-    <li> <strong class="uidlink"><a href="app_object-module.html">app_object</a></strong>: <em class="summary">File: app_object.py</em>    </li>
-    <li> <strong class="uidlink"><a href="appdir_page-module.html">appdir_page</a></strong>: <em class="summary">File: appdir_page.py</em>    </li>
-    <li> <strong class="uidlink"><a href="firefox-module.html">firefox</a></strong>: <em class="summary">File: firefox.py</em>    </li>
-    <li> <strong class="uidlink"><a href="image_resize-module.html">image_resize</a></strong>: <em class="summary">File: image_resize.py</em>    </li>
-    <li> <strong class="uidlink"><a href="myapps_page-module.html">myapps_page</a></strong>: <em class="summary">File: myapps_page.py</em>    </li>
-    <li> <strong class="uidlink"><a href="os_box-module.html">os_box</a></strong>: <em class="summary">File: os_box.py</em>    </li>
-</ul>
+<h1 class="epydoc">Source Code for <a href="image_resize-module.html">Module image_resize</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">File: image_resize.py</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring">Author: David Clarke</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring">Contributor(s): Jason Smith</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring">Date: 1/18/2012</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"> </tt>
+<a name="desktopsize"></a><div id="desktopsize-def"><a name="L10"></a><tt class="py-lineno">10</tt> <a class="py-toggle" href="#" id="desktopsize-toggle" onclick="return toggle('desktopsize');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="image_resize-module.html#desktopsize">desktopsize</a><tt class="py-op">(</tt><tt class="py-param">filename</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="desktopsize-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="desktopsize-expanded"><a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line">    <tt class="py-keyword">from</tt> <tt class="py-name">org</tt><tt class="py-op">.</tt><tt class="py-name">mozilla</tt><tt class="py-op">.</tt><tt class="py-name">sikuli</tt><tt class="py-op">.</tt><tt class="py-name">utils</tt> <tt class="py-keyword">import</tt> <tt class="py-name">ImageResize</tt>                                     </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">    <tt class="py-name">ImageResize</tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">)</tt>    </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">filename</tt> </tt>
+</div><a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
 <!-- ==================== NAVIGATION BAR ==================== -->
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
 
   <!-- Tree link -->
-      <th bgcolor="#70b0f0" class="navbar-select"
-          >&nbsp;&nbsp;&nbsp;Trees&nbsp;&nbsp;&nbsp;</th>
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Index link -->
       <th>&nbsp;&nbsp;&nbsp;<a

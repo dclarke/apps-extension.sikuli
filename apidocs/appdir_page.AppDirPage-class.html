@@ -3,7 +3,7 @@
           "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>firefox.Firefox</title>
+  <title>appdir_page.AppDirPage</title>
   <link rel="stylesheet" href="epydoc.css" type="text/css" />
   <script type="text/javascript" src="epydoc.js"></script>
 </head>
@@ -39,8 +39,8 @@
   <tr valign="top">
     <td width="100%">
       <span class="breadcrumbs">
-        <a href="firefox-module.html">Module&nbsp;firefox</a> ::
-        Class&nbsp;Firefox
+        <a href="appdir_page-module.html">Module&nbsp;appdir_page</a> ::
+        Class&nbsp;AppDirPage
       </span>
     </td>
     <td>
@@ -50,17 +50,18 @@
     onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
         <tr><td align="right"><span class="options"
             >[<a href="frames.html" target="_top">frames</a
-            >]&nbsp;|&nbsp;<a href="firefox.Firefox-class.html"
+            >]&nbsp;|&nbsp;<a href="appdir_page.AppDirPage-class.html"
             target="_top">no&nbsp;frames</a>]</span></td></tr>
       </table>
     </td>
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class Firefox</h1><p class="nomargin-top"><span class="codelink"><a href="firefox-pysrc.html#Firefox">source&nbsp;code</a></span></p>
+<h1 class="epydoc">Class AppDirPage</h1><p class="nomargin-top"><span class="codelink"><a href="appdir_page-pysrc.html#AppDirPage">source&nbsp;code</a></span></p>
 <pre class="literalblock">
 
-This class encapsulates actions that occur on the Firefox browser.
+An AppDir object is an object representation of https://apps.mozillalabs.com/appdir.
+The purpose of the object is to be able to dissect the page and determine what is installed.
 
 </pre>
 
@@ -87,10 +88,10 @@ This class encapsulates actions that occur on the Firefox browser.
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="__init__"></a><span class="summary-sig-name">__init__</span>(<span class="summary-sig-arg">self</span>)</span><br />
-      Constructs a Firefox application instance and loads the application.</td>
+          <td><span class="summary-sig"><a href="appdir_page.AppDirPage-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      AppDir constructor sets the page url, and takes an application object.</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="firefox-pysrc.html#Firefox.__init__">source&nbsp;code</a></span>
+            <span class="codelink"><a href="appdir_page-pysrc.html#AppDirPage.__init__">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -104,10 +105,10 @@ This class encapsulates actions that occur on the Firefox browser.
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="firefox.Firefox-class.html#start_browser" class="summary-sig-name">start_browser</a>(<span class="summary-sig-arg">self</span>)</span><br />
-      Starts up the browser if it hasn't already started and waits until it is loaded.</td>
+          <td><span class="summary-sig"><a name="page_loaded"></a><span class="summary-sig-name">page_loaded</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Waits for the main image on the page to load before returning.</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="firefox-pysrc.html#Firefox.start_browser">source&nbsp;code</a></span>
+            <span class="codelink"><a href="appdir_page-pysrc.html#AppDirPage.page_loaded">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -121,10 +122,10 @@ This class encapsulates actions that occur on the Firefox browser.
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="focus"></a><span class="summary-sig-name">focus</span>(<span class="summary-sig-arg">self</span>)</span><br />
-      Brings Firefox to the foreground by focusing on the firefox application.</td>
+          <td><span class="summary-sig"><a name="installable_apps"></a><span class="summary-sig-name">installable_apps</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Find all the apps that are not installed.</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="firefox-pysrc.html#Firefox.focus">source&nbsp;code</a></span>
+            <span class="codelink"><a href="appdir_page-pysrc.html#AppDirPage.installable_apps">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -138,11 +139,10 @@ This class encapsulates actions that occur on the Firefox browser.
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="firefox.Firefox-class.html#go_to_url" class="summary-sig-name">go_to_url</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">url</span>)</span><br />
-      Instructs the browser to go to the specified URL.</td>
+          <td><span class="summary-sig"><a href="appdir_page.AppDirPage-class.html#installed_apps" class="summary-sig-name">installed_apps</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Finds all of the apps that are currently installed.</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="firefox-pysrc.html#Firefox.go_to_url">source&nbsp;code</a></span>
+            <span class="codelink"><a href="appdir_page-pysrc.html#AppDirPage.installed_apps">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -150,72 +150,57 @@ This class encapsulates actions that occur on the Firefox browser.
       
     </td>
   </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a name="maximize"></a><span class="summary-sig-name">maximize</span>(<span class="summary-sig-arg">self</span>)</span><br />
-      Maximizes the application</td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="firefox-pysrc.html#Firefox.maximize">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
+        <a name="URL"></a><span class="summary-name">URL</span> = <code title="'https://apps.mozillalabs.com/appdir'"><code class="variable-quote">'</code><code class="variable-string">https://apps.mozillalabs.com/appdir</code><code class="variable-quote">'</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a name="reload"></a><span class="summary-sig-name">reload</span>(<span class="summary-sig-arg">self</span>)</span><br />
-      Reloads the current page</td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="firefox-pysrc.html#Firefox.reload">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
+        <a name="DEMO_APPS_IMG"></a><span class="summary-name">DEMO_APPS_IMG</span> = <code title="'demoapps.png'"><code class="variable-quote">'</code><code class="variable-string">demoapps.png</code><code class="variable-quote">'</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a href="firefox.Firefox-class.html#gotodashboard" class="summary-sig-name">gotodashboard</a>(<span class="summary-sig-arg">self</span>)</span><br />
-      clicks on the dashboard icon in the bottom right of firefox.</td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="firefox-pysrc.html#Firefox.gotodashboard">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
+        <a name="APPS_VISIBLE_IMG"></a><span class="summary-name">APPS_VISIBLE_IMG</span> = <code title="'appsvisible.png'"><code class="variable-quote">'</code><code class="variable-string">appsvisible.png</code><code class="variable-quote">'</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a name="switchappdirtab"></a><span class="summary-sig-name">switchappdirtab</span>(<span class="summary-sig-arg">self</span>)</span><br />
-      switches to the apps.mozillalabs.com/appdir tab</td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="firefox-pysrc.html#Firefox.switchappdirtab">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
+        <a name="INSTALL_IMG"></a><span class="summary-name">INSTALL_IMG</span> = <code title="'Install.png'"><code class="variable-quote">'</code><code class="variable-string">Install.png</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="INSTALLED_IMG"></a><span class="summary-name">INSTALLED_IMG</span> = <code title="'Installed.png'"><code class="variable-quote">'</code><code class="variable-string">Installed.png</code><code class="variable-quote">'</code></code>
     </td>
   </tr>
 </table>
@@ -237,76 +222,56 @@ This class encapsulates actions that occur on the Firefox browser.
   </td>
 </tr>
 </table>
-<a name="start_browser"></a>
+<a name="__init__"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">start_browser</span>(<span class="sig-arg">self</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="firefox-pysrc.html#Firefox.start_browser">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="appdir_page-pysrc.html#AppDirPage.__init__">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
   <pre class="literalblock">
 
-Starts up the browser if it hasn't already started and waits until it is loaded.
-
-Raises:
-    TimeoutStartupError: If firefox fails to startup within ten seconds
+AppDir constructor sets the page url, and takes an application object.  
+It allows for the AppDir to make calls into the firefox application to make sure 
+that the correct page is loaded, the browser is focused..etc.
 
 </pre>
   <dl class="fields">
   </dl>
 </td></tr></table>
 </div>
-<a name="go_to_url"></a>
+<a name="installed_apps"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">go_to_url</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">url</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">installed_apps</span>(<span class="sig-arg">self</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="firefox-pysrc.html#Firefox.go_to_url">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="appdir_page-pysrc.html#AppDirPage.installed_apps">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
   <pre class="literalblock">
 
-Instructs the browser to go to the specified URL.
+Finds all of the apps that are currently installed.
 
-Arguments:
-    url: The url to go to
+Returns:
+    The list of installed applications as application objects.
 
-</pre>
-  <dl class="fields">
-  </dl>
-</td></tr></table>
-</div>
-<a name="gotodashboard"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">gotodashboard</span>(<span class="sig-arg">self</span>)</span>
-  </h3>
-  </td><td align="right" valign="top"
-    ><span class="codelink"><a href="firefox-pysrc.html#Firefox.gotodashboard">source&nbsp;code</a></span>&nbsp;
-    </td>
-  </tr></table>
-  
-  <pre class="literalblock">
-clicks on the dashboard icon in the bottom right of firefox. 
-this is only valid if the extension is installed 
+XXX: Not all installed images are found consistently. Likely,
+     we need to wait until the page is fully loaded before
+     this method is executed.
 
 </pre>
   <dl class="fields">

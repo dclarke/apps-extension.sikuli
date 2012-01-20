@@ -3,7 +3,7 @@
           "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>firefox</title>
+  <title>os_box</title>
   <link rel="stylesheet" href="epydoc.css" type="text/css" />
   <script type="text/javascript" src="epydoc.js"></script>
 </head>
@@ -39,7 +39,7 @@
   <tr valign="top">
     <td width="100%">
       <span class="breadcrumbs">
-        Module&nbsp;firefox
+        Module&nbsp;os_box
       </span>
     </td>
     <td>
@@ -49,20 +49,20 @@
     onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
         <tr><td align="right"><span class="options"
             >[<a href="frames.html" target="_top">frames</a
-            >]&nbsp;|&nbsp;<a href="firefox-module.html"
+            >]&nbsp;|&nbsp;<a href="os_box-module.html"
             target="_top">no&nbsp;frames</a>]</span></td></tr>
       </table>
     </td>
   </tr>
 </table>
 <!-- ==================== MODULE DESCRIPTION ==================== -->
-<h1 class="epydoc">Module firefox</h1><p class="nomargin-top"><span class="codelink"><a href="firefox-pysrc.html">source&nbsp;code</a></span></p>
+<h1 class="epydoc">Module os_box</h1><p class="nomargin-top"><span class="codelink"><a href="os_box-pysrc.html">source&nbsp;code</a></span></p>
 <pre class="literalblock">
 
-File: firefox.py
+File: os_box.py
 
 Author: David Clarke
-Contributor(s): Jason Smith
+Contributor(s): Jason Smith, Mohamed Dabbagh, Jason Smith
 
 Date: 1/18/2012
 
@@ -89,16 +89,57 @@ Date: 1/18/2012
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="firefox.TimeoutStartupError-class.html" class="summary-name">TimeoutStartupError</a><br />
-      Thrown to indicate that firefox failed to startup within a time period.
+        <a href="os_box.OSBox-class.html" class="summary-name">OSBox</a><br />
+      Base class representation for all machines
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="firefox.Firefox-class.html" class="summary-name">Firefox</a><br />
-      This class encapsulates actions that occur on the Firefox browser.
+        <a href="os_box.MacOSBox-class.html" class="summary-name">MacOSBox</a><br />
+      A MacOSBox object will contain functions that are mac specific
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="os_box.WinError-class.html" class="summary-name">WinError</a><br />
+      Error to indicate a windows-specific issue, such as finding windows-specific icons.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="os_box.WinOSBox-class.html" class="summary-name">WinOSBox</a><br />
+      A windows OSBox will contain functions that are windows specific
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="os_box.LinOSBox-class.html" class="summary-name">LinOSBox</a><br />
+      linuxOSBox is currently untested, but will need to be filled in when appropriate
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="os_box.UnsuppportedOSError-class.html" class="summary-name">UnsuppportedOSError</a><br />
+      Thrown to indicate that the OS running is not supported.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="os_box.ConstructOSBox-class.html" class="summary-name">ConstructOSBox</a><br />
+      Factory class used to generate the appropriate OSBox object
+based on the underlying operating system being used.
     </td>
   </tr>
 </table>

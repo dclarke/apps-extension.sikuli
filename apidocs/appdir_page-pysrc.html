@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>appdir_page</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >apps-extension.sikuli</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Module&nbsp;appdir_page
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="appdir_page-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="appdir_page-module.html">Module appdir_page</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">File: appdir_page.py</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring">Author: David Clarke</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring">Contributor(s): Jason Smith</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring">Date: 1/18/2012</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">pprint</tt> <tt class="py-keyword">import</tt> <tt class="py-name">pprint</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">operator</tt> <tt class="py-keyword">import</tt> <tt class="py-name">itemgetter</tt><tt class="py-op">,</tt> <tt class="py-name">attrgetter</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"> </tt>
+<a name="AppDirPage"></a><div id="AppDirPage-def"><a name="L13"></a><tt class="py-lineno">13</tt> <a class="py-toggle" href="#" id="AppDirPage-toggle" onclick="return toggle('AppDirPage');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="appdir_page.AppDirPage-class.html">AppDirPage</a><tt class="py-op">:</tt> </tt>
+</div><div id="AppDirPage-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="AppDirPage-expanded"><a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-docstring">    An AppDir object is an object representation of https://apps.mozillalabs.com/appdir.</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring">    The purpose of the object is to be able to dissect the page and determine what is installed.</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">    <tt id="link-0" class="py-name" targets="Variable appdir_page.AppDirPage.URL=appdir_page.AppDirPage-class.html#URL,Variable myapps_page.MyAppsPage.URL=myapps_page.MyAppsPage-class.html#URL"><a title="appdir_page.AppDirPage.URL
+myapps_page.MyAppsPage.URL" class="py-name" href="#" onclick="return doclink('link-0', 'URL', 'link-0');">URL</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"https://apps.mozillalabs.com/appdir"</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">    <tt id="link-1" class="py-name" targets="Variable appdir_page.AppDirPage.DEMO_APPS_IMG=appdir_page.AppDirPage-class.html#DEMO_APPS_IMG"><a title="appdir_page.AppDirPage.DEMO_APPS_IMG" class="py-name" href="#" onclick="return doclink('link-1', 'DEMO_APPS_IMG', 'link-1');">DEMO_APPS_IMG</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"demoapps.png"</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">    <tt id="link-2" class="py-name" targets="Variable appdir_page.AppDirPage.APPS_VISIBLE_IMG=appdir_page.AppDirPage-class.html#APPS_VISIBLE_IMG"><a title="appdir_page.AppDirPage.APPS_VISIBLE_IMG" class="py-name" href="#" onclick="return doclink('link-2', 'APPS_VISIBLE_IMG', 'link-2');">APPS_VISIBLE_IMG</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"appsvisible.png"</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">    <tt id="link-3" class="py-name" targets="Variable appdir_page.AppDirPage.INSTALL_IMG=appdir_page.AppDirPage-class.html#INSTALL_IMG"><a title="appdir_page.AppDirPage.INSTALL_IMG" class="py-name" href="#" onclick="return doclink('link-3', 'INSTALL_IMG', 'link-3');">INSTALL_IMG</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"Install.png"</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">    <tt id="link-4" class="py-name" targets="Variable appdir_page.AppDirPage.INSTALLED_IMG=appdir_page.AppDirPage-class.html#INSTALLED_IMG"><a title="appdir_page.AppDirPage.INSTALLED_IMG" class="py-name" href="#" onclick="return doclink('link-4', 'INSTALLED_IMG', 'link-4');">INSTALLED_IMG</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"Installed.png"</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"> </tt>
+<a name="AppDirPage.__init__"></a><div id="AppDirPage.__init__-def"><a name="L24"></a><tt class="py-lineno">24</tt> <a class="py-toggle" href="#" id="AppDirPage.__init__-toggle" onclick="return toggle('AppDirPage.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="appdir_page.AppDirPage-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AppDirPage.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="AppDirPage.__init__-expanded"><a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">        <tt class="py-docstring">""" </tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-docstring">        AppDir constructor sets the page url, and takes an application object.  </tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt class="py-docstring">        It allows for the AppDir to make calls into the firefox application to make sure </tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"><tt class="py-docstring">        that the correct page is loaded, the browser is focused..etc.</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_system</tt> <tt class="py-op">=</tt> <tt id="link-5" class="py-name" targets="Class os_box.ConstructOSBox=os_box.ConstructOSBox-class.html"><a title="os_box.ConstructOSBox" class="py-name" href="#" onclick="return doclink('link-5', 'ConstructOSBox', 'link-5');">ConstructOSBox</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"> </tt>
+<a name="AppDirPage.page_loaded"></a><div id="AppDirPage.page_loaded-def"><a name="L32"></a><tt class="py-lineno">32</tt> <a class="py-toggle" href="#" id="AppDirPage.page_loaded-toggle" onclick="return toggle('AppDirPage.page_loaded');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="appdir_page.AppDirPage-class.html#page_loaded">page_loaded</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AppDirPage.page_loaded-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="AppDirPage.page_loaded-expanded"><a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"><tt class="py-docstring">        Waits for the main image on the page to load before returning.</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">        <tt class="py-name">wait</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_system</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Method os_box.MacOSBox.images()=os_box.MacOSBox-class.html#images,Method os_box.OSBox.images()=os_box.OSBox-class.html#images,Method os_box.WinOSBox.images()=os_box.WinOSBox-class.html#images"><a title="os_box.MacOSBox.images
+os_box.OSBox.images
+os_box.WinOSBox.images" class="py-name" href="#" onclick="return doclink('link-6', 'images', 'link-6');">images</a></tt><tt class="py-op">(</tt><tt id="link-7" class="py-name" targets="Class appdir_page.AppDirPage=appdir_page.AppDirPage-class.html"><a title="appdir_page.AppDirPage" class="py-name" href="#" onclick="return doclink('link-7', 'AppDirPage', 'link-7');">AppDirPage</a></tt><tt class="py-op">.</tt><tt id="link-8" class="py-name"><a title="appdir_page.AppDirPage.DEMO_APPS_IMG" class="py-name" href="#" onclick="return doclink('link-8', 'DEMO_APPS_IMG', 'link-1');">DEMO_APPS_IMG</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">        <tt class="py-name">wait</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_system</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name"><a title="os_box.MacOSBox.images
+os_box.OSBox.images
+os_box.WinOSBox.images" class="py-name" href="#" onclick="return doclink('link-9', 'images', 'link-6');">images</a></tt><tt class="py-op">(</tt><tt id="link-10" class="py-name"><a title="appdir_page.AppDirPage" class="py-name" href="#" onclick="return doclink('link-10', 'AppDirPage', 'link-7');">AppDirPage</a></tt><tt class="py-op">.</tt><tt id="link-11" class="py-name"><a title="appdir_page.AppDirPage.APPS_VISIBLE_IMG" class="py-name" href="#" onclick="return doclink('link-11', 'APPS_VISIBLE_IMG', 'link-2');">APPS_VISIBLE_IMG</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line"> </tt>
+<a name="AppDirPage.installable_apps"></a><div id="AppDirPage.installable_apps-def"><a name="L39"></a><tt class="py-lineno">39</tt> <a class="py-toggle" href="#" id="AppDirPage.installable_apps-toggle" onclick="return toggle('AppDirPage.installable_apps');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="appdir_page.AppDirPage-class.html#installable_apps">installable_apps</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AppDirPage.installable_apps-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="AppDirPage.installable_apps-expanded"><a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"><tt class="py-docstring">        Find all the apps that are not installed.</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_applications</tt> <tt class="py-op">=</tt> <tt class="py-name">list</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line"> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">        <tt class="py-name">install_icons</tt> <tt class="py-op">=</tt> <tt class="py-name">list</tt><tt class="py-op">(</tt><tt class="py-name">findAll</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_system</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name"><a title="os_box.MacOSBox.images
+os_box.OSBox.images
+os_box.WinOSBox.images" class="py-name" href="#" onclick="return doclink('link-12', 'images', 'link-6');">images</a></tt><tt class="py-op">(</tt><tt id="link-13" class="py-name"><a title="appdir_page.AppDirPage" class="py-name" href="#" onclick="return doclink('link-13', 'AppDirPage', 'link-7');">AppDirPage</a></tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="appdir_page.AppDirPage.INSTALL_IMG" class="py-name" href="#" onclick="return doclink('link-14', 'INSTALL_IMG', 'link-3');">INSTALL_IMG</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line"> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">icon</tt> <tt class="py-keyword">in</tt> <tt class="py-name">install_icons</tt><tt class="py-op">:</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">            <tt class="py-name">tempApp</tt> <tt class="py-op">=</tt> <tt id="link-15" class="py-name" targets="Class app_object.AppObject=app_object.AppObject-class.html"><a title="app_object.AppObject" class="py-name" href="#" onclick="return doclink('link-15', 'AppObject', 'link-15');">AppObject</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">            <tt class="py-name">tempApp</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method app_object.AppObject.topleft()=app_object.AppObject-class.html#topleft"><a title="app_object.AppObject.topleft" class="py-name" href="#" onclick="return doclink('link-16', 'topleft', 'link-16');">topleft</a></tt><tt class="py-op">(</tt><tt class="py-string">"Install Button"</tt><tt class="py-op">,</tt> <tt class="py-name">icon</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_applications</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">tempApp</tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line"> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_applications</tt> <tt class="py-op">=</tt> <tt class="py-name">sorted</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_applications</tt><tt class="py-op">,</tt> <tt class="py-name">key</tt><tt class="py-op">=</tt><tt class="py-name">attrgetter</tt><tt class="py-op">(</tt><tt class="py-string">'y'</tt><tt class="py-op">,</tt> <tt class="py-string">'x'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_applications</tt> </tt>
+</div><a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line"> </tt>
+<a name="AppDirPage.installed_apps"></a><div id="AppDirPage.installed_apps-def"><a name="L55"></a><tt class="py-lineno">55</tt> <a class="py-toggle" href="#" id="AppDirPage.installed_apps-toggle" onclick="return toggle('AppDirPage.installed_apps');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="appdir_page.AppDirPage-class.html#installed_apps">installed_apps</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AppDirPage.installed_apps-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="AppDirPage.installed_apps-expanded"><a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line"><tt class="py-docstring">        Finds all of the apps that are currently installed.</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line"><tt class="py-docstring">        Returns:</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line"><tt class="py-docstring">            The list of installed applications as application objects.</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line"><tt class="py-docstring">        XXX: Not all installed images are found consistently. Likely,</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line"><tt class="py-docstring">             we need to wait until the page is fully loaded before</tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line"><tt class="py-docstring">             this method is executed.</tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line">        <tt class="py-name">installed_icons</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line"> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line">        <tt class="py-name">installed_icons</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line">        <tt class="py-name">installed_image</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_system</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="os_box.MacOSBox.images
+os_box.OSBox.images
+os_box.WinOSBox.images" class="py-name" href="#" onclick="return doclink('link-17', 'images', 'link-6');">images</a></tt><tt class="py-op">(</tt><tt id="link-18" class="py-name"><a title="appdir_page.AppDirPage" class="py-name" href="#" onclick="return doclink('link-18', 'AppDirPage', 'link-7');">AppDirPage</a></tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="appdir_page.AppDirPage.INSTALLED_IMG" class="py-name" href="#" onclick="return doclink('link-19', 'INSTALLED_IMG', 'link-4');">INSTALLED_IMG</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line"> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">        <tt class="py-comment"># If the installed image is found, get all of them</tt> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">exists</tt><tt class="py-op">(</tt><tt class="py-name">installed_image</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line">            <tt class="py-name">installed_icons</tt> <tt class="py-op">=</tt> <tt class="py-name">list</tt><tt class="py-op">(</tt><tt class="py-name">findAll</tt><tt class="py-op">(</tt><tt class="py-name">installed_image</tt><tt class="py-op">)</tt><tt class="py-op">)</tt>   </tt>
+<a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line"> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line">        <tt id="link-20" class="py-name" targets="Method appdir_page.AppDirPage.installed_apps()=appdir_page.AppDirPage-class.html#installed_apps"><a title="appdir_page.AppDirPage.installed_apps" class="py-name" href="#" onclick="return doclink('link-20', 'installed_apps', 'link-20');">installed_apps</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line"> </tt>
+<a name="L77"></a><tt class="py-lineno">77</tt>  <tt class="py-line">        <tt class="py-comment"># Creates an application object for each installed app found</tt> </tt>
+<a name="L78"></a><tt class="py-lineno">78</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">icon</tt> <tt class="py-keyword">in</tt> <tt class="py-name">installed_icons</tt><tt class="py-op">:</tt> </tt>
+<a name="L79"></a><tt class="py-lineno">79</tt>  <tt class="py-line">            <tt class="py-name">temp_app</tt> <tt class="py-op">=</tt> <tt id="link-21" class="py-name"><a title="app_object.AppObject" class="py-name" href="#" onclick="return doclink('link-21', 'AppObject', 'link-15');">AppObject</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno">80</tt>  <tt class="py-line">            <tt class="py-name">temp_app</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="app_object.AppObject.topleft" class="py-name" href="#" onclick="return doclink('link-22', 'topleft', 'link-16');">topleft</a></tt><tt class="py-op">(</tt><tt class="py-string">"Installed"</tt><tt class="py-op">,</tt> <tt class="py-name">icon</tt><tt class="py-op">)</tt> </tt>
+<a name="L81"></a><tt class="py-lineno">81</tt>  <tt class="py-line">            <tt id="link-23" class="py-name"><a title="appdir_page.AppDirPage.installed_apps" class="py-name" href="#" onclick="return doclink('link-23', 'installed_apps', 'link-20');">installed_apps</a></tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">temp_app</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno">82</tt>  <tt class="py-line"> </tt>
+<a name="L83"></a><tt class="py-lineno">83</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">sorted</tt><tt class="py-op">(</tt><tt id="link-24" class="py-name"><a title="appdir_page.AppDirPage.installed_apps" class="py-name" href="#" onclick="return doclink('link-24', 'installed_apps', 'link-20');">installed_apps</a></tt><tt class="py-op">,</tt> <tt class="py-name">key</tt><tt class="py-op">=</tt><tt class="py-name">attrgetter</tt><tt class="py-op">(</tt><tt class="py-string">'y'</tt><tt class="py-op">,</tt> <tt class="py-string">'x'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L84"></a><tt class="py-lineno">84</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >apps-extension.sikuli</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Jan 19 19:04:26 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -7,30 +7,52 @@ Contributor(s): Jason Smith
 Date: 1/18/2012
 """
 
-class MyAppsPage:
-    """ MyApps class creates a page object model """
-    URL = "https://myapps.mozillalabs.com/"
+class ApplicationNotFoundError(Exception):
+    """
+    Thrown to indicate that the application image specified was not found.
+    """
+    pass
 
-    def __init__(self, app):
-        """ initialize the myapp object """
-        self.system = ConstructOSBox()
+
+class MyAppsPage:
+    """
+    Represents the My Applications Web Page at the below URL specified
+    in the constant. Allows callers to delete applications.
+    """
+    URL = "https://myapps.mozillalabs.com/"
+    CLICK_TO_LAUNCH_IMG = "clicktolaunch.png"
+    UNINSTALL_OK_IMG = "uninstall_ok.png"
+
+    def __init__(self):
+        """
+        Constructs a MyAppsPage object. 
+        """
+        self._system = ConstructOSBox()
 
     def page_loaded(self):
-        """Reloads the dashboard """
-        wait(self.system.images("clicktolaunch.png"), 10)
+        """
+        Waits for the MyAppsPage to be loaded.
+        """
+        wait(self._system.images(MyAppsPage.CLICK_TO_LAUNCH_IMG))
 
     def delete(self, appimage):
-        """ delete an app from the myapps page """
-        self.go()
-        self.page_loaded()
-        found = find(appimage)
-        uninstall_visible = 0 
-        hover(found)
-        mouseDown(Button.LEFT)
-        wait(2)
-        mouseUp() 
-        click(self.system.images("uninstall_ok.png"))
+        """
+        Deletes the specified application specified in the image.
+        
+        Arguments:
+            appimage: The image of the application to delete
 
-    def go(self):
-        """ launches the dashboard, through the icon in the bottom right of firefox """
-        click(self.system.images("dashboard_launcher.png"))
+        Throws:
+            ApplicationNotFoundError if the application image specified
+            is not found
+        """
+        self.page_loaded()
+        
+        if(exists(appimage)):
+            hover(find(appimage))
+            mouseDown(Button.LEFT)
+            wait(2)
+            mouseUp() 
+            click(self._system.images(MyAppsPage.UNINSTALL_OK_IMG))
+        else:
+            raise ApplicationNotFoundError(str(appimage) + " was not found.")

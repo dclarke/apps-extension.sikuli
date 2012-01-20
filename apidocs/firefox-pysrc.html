@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>firefox</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >apidocs</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Module&nbsp;firefox
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="firefox-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="firefox-module.html">Module firefox</a></h1>
+<pre class="py-src">
+<a name="TimeoutStartupError"></a><div id="TimeoutStartupError-def"><a name="L1"></a><tt class="py-lineno">  1</tt> <a class="py-toggle" href="#" id="TimeoutStartupError-toggle" onclick="return toggle('TimeoutStartupError');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="firefox.TimeoutStartupError-class.html">TimeoutStartupError</a><tt class="py-op">(</tt><tt class="py-base-class">Exception</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TimeoutStartupError-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="TimeoutStartupError-expanded"><a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">    Thrown to indicate that firefox failed to startup within a time period.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line">    <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"> </tt>
+<a name="Firefox"></a><div id="Firefox-def"><a name="L8"></a><tt class="py-lineno">  8</tt> <a class="py-toggle" href="#" id="Firefox-toggle" onclick="return toggle('Firefox');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="firefox.Firefox-class.html">Firefox</a><tt class="py-op">:</tt> </tt>
+</div><div id="Firefox-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="Firefox-expanded"><a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line">    <tt class="py-docstring">""" This class encapsulates actions that occur on the browser """</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line">    <tt id="link-0" class="py-name" targets="Variable firefox.Firefox.STARTUP_TIMEOUT=firefox.Firefox-class.html#STARTUP_TIMEOUT"><a title="firefox.Firefox.STARTUP_TIMEOUT" class="py-name" href="#" onclick="return doclink('link-0', 'STARTUP_TIMEOUT', 'link-0');">STARTUP_TIMEOUT</a></tt> <tt class="py-op">=</tt> <tt class="py-number">10</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line">     </tt>
+<a name="Firefox.__init__"></a><div id="Firefox.__init__-def"><a name="L12"></a><tt class="py-lineno"> 12</tt> <a class="py-toggle" href="#" id="Firefox.__init__-toggle" onclick="return toggle('Firefox.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="firefox.Firefox-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Firefox.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Firefox.__init__-expanded"><a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring">        Constructs a Firefox application instance and loads the application.</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_system</tt> <tt class="py-op">=</tt> <tt id="link-1" class="py-name" targets="Class constructbox.ConstructBox=constructbox.ConstructBox-class.html"><a title="constructbox.ConstructBox" class="py-name" href="#" onclick="return doclink('link-1', 'ConstructBox', 'link-1');">ConstructBox</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Method firefox.Firefox.start_browser()=firefox.Firefox-class.html#start_browser"><a title="firefox.Firefox.start_browser" class="py-name" href="#" onclick="return doclink('link-2', 'start_browser', 'link-2');">start_browser</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Method firefox.Firefox.maximize()=firefox.Firefox-class.html#maximize"><a title="firefox.Firefox.maximize" class="py-name" href="#" onclick="return doclink('link-3', 'maximize', 'link-3');">maximize</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"> </tt>
+<a name="Firefox.start_browser"></a><div id="Firefox.start_browser-def"><a name="L20"></a><tt class="py-lineno"> 20</tt> <a class="py-toggle" href="#" id="Firefox.start_browser-toggle" onclick="return toggle('Firefox.start_browser');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="firefox.Firefox-class.html#start_browser">start_browser</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Firefox.start_browser-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Firefox.start_browser-expanded"><a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">        <tt class="py-docstring">""" Starts up the browser if it hasn't already started and waits until it is loaded.</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-docstring">        Raises:</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-docstring">        TimeoutStartupError: If firefox fails to startup within ten seconds</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_location</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_system</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Method constructbox.LinBox.firefoxLocation()=constructbox.LinBox-class.html#firefoxLocation,Method constructbox.MacBox.firefoxLocation()=constructbox.MacBox-class.html#firefoxLocation,Method constructbox.WinBox.firefoxLocation()=constructbox.WinBox-class.html#firefoxLocation"><a title="constructbox.LinBox.firefoxLocation
+constructbox.MacBox.firefoxLocation
+constructbox.WinBox.firefoxLocation" class="py-name" href="#" onclick="return doclink('link-4', 'firefoxLocation', 'link-4');">firefoxLocation</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_firefox</tt> <tt class="py-op">=</tt> <tt class="py-name">App</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_system</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Variable constructbox.Box.FIREFOX_APP_NAME=constructbox.Box-class.html#FIREFOX_APP_NAME,Variable constructbox.MacBox.FIREFOX_APP_NAME=constructbox.MacBox-class.html#FIREFOX_APP_NAME,Variable constructbox.WinBox.FIREFOX_APP_NAME=constructbox.WinBox-class.html#FIREFOX_APP_NAME"><a title="constructbox.Box.FIREFOX_APP_NAME
+constructbox.MacBox.FIREFOX_APP_NAME
+constructbox.WinBox.FIREFOX_APP_NAME" class="py-name" href="#" onclick="return doclink('link-5', 'FIREFOX_APP_NAME', 'link-5');">FIREFOX_APP_NAME</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">         </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">        <tt class="py-comment"># If firefox isn't loaded, start firefox</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_firefox</tt><tt class="py-op">.</tt><tt class="py-name">window</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">            <tt class="py-name">App</tt><tt class="py-op">.</tt><tt class="py-name">open</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_location</tt><tt class="py-op">)</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">         </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">        <tt class="py-name">is_started</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">        <tt class="py-name">time_passed</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">         </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">        <tt class="py-comment"># Wait until firefox has started for a period of time</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">        <tt class="py-keyword">while</tt><tt class="py-op">(</tt><tt class="py-keyword">not</tt> <tt class="py-name">is_started</tt> <tt class="py-keyword">and</tt> <tt class="py-name">time_passed</tt> <tt class="py-op">&lt;</tt> <tt id="link-6" class="py-name" targets="Class firefox.Firefox=firefox.Firefox-class.html"><a title="firefox.Firefox" class="py-name" href="#" onclick="return doclink('link-6', 'Firefox', 'link-6');">Firefox</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="firefox.Firefox.STARTUP_TIMEOUT" class="py-name" href="#" onclick="return doclink('link-7', 'STARTUP_TIMEOUT', 'link-0');">STARTUP_TIMEOUT</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_firefox</tt><tt class="py-op">.</tt><tt class="py-name">window</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">                <tt class="py-name">is_started</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">            <tt class="py-name">wait</tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">         </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">        <tt class="py-comment"># If firefox has not started, throw an error</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">is_started</tt><tt class="py-op">:</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt id="link-8" class="py-name" targets="Class firefox.TimeoutStartupError=firefox.TimeoutStartupError-class.html"><a title="firefox.TimeoutStartupError" class="py-name" href="#" onclick="return doclink('link-8', 'TimeoutStartupError', 'link-8');">TimeoutStartupError</a></tt><tt class="py-op">(</tt><tt class="py-string">"Timeout on starting up firefox."</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"> </tt>
+<a name="Firefox.focus"></a><div id="Firefox.focus-def"><a name="L47"></a><tt class="py-lineno"> 47</tt> <a class="py-toggle" href="#" id="Firefox.focus-toggle" onclick="return toggle('Firefox.focus');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="firefox.Firefox-class.html#focus">focus</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Firefox.focus-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Firefox.focus-expanded"><a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-docstring">        Brings Firefox to the foreground by focusing on the firefox application.</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_firefox</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Method firefox.Firefox.focus()=firefox.Firefox-class.html#focus"><a title="firefox.Firefox.focus" class="py-name" href="#" onclick="return doclink('link-9', 'focus', 'link-9');">focus</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"> </tt>
+<a name="Firefox.go_to_url"></a><div id="Firefox.go_to_url-def"><a name="L53"></a><tt class="py-lineno"> 53</tt> <a class="py-toggle" href="#" id="Firefox.go_to_url-toggle" onclick="return toggle('Firefox.go_to_url');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="firefox.Firefox-class.html#go_to_url">go_to_url</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">url</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Firefox.go_to_url-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Firefox.go_to_url-expanded"><a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-docstring">        Instructs the browser to go to the specified URL.</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"><tt class="py-docstring">        Arguments:</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"><tt class="py-docstring">        url: The url to go to</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Going to URL: "</tt> <tt class="py-op">+</tt> <tt class="py-name">url</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">         </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_system</tt><tt class="py-op">.</tt><tt class="py-name">mach</tt> <tt class="py-op">==</tt> <tt class="py-string">'mac'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">            <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-string">"l"</tt><tt class="py-op">,</tt> <tt class="py-name">KEY_CMD</tt><tt class="py-op">)</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">            <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-string">'l'</tt><tt class="py-op">,</tt> <tt class="py-name">KEY_CTRL</tt><tt class="py-op">)</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">        <tt class="py-name">paste</tt><tt class="py-op">(</tt><tt class="py-name">url</tt><tt class="py-op">)</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">        <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">Key</tt><tt class="py-op">.</tt><tt class="py-name">ENTER</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"> </tt>
+<a name="Firefox.maximize"></a><div id="Firefox.maximize-def"><a name="L71"></a><tt class="py-lineno"> 71</tt> <a class="py-toggle" href="#" id="Firefox.maximize-toggle" onclick="return toggle('Firefox.maximize');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="firefox.Firefox-class.html#maximize">maximize</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Firefox.maximize-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Firefox.maximize-expanded"><a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">        <tt class="py-docstring">""" Maximizes the application """</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_system</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method constructbox.LinBox.maximizeapp()=constructbox.LinBox-class.html#maximizeapp,Method constructbox.MacBox.maximizeapp()=constructbox.MacBox-class.html#maximizeapp,Method constructbox.WinBox.maximizeapp()=constructbox.WinBox-class.html#maximizeapp"><a title="constructbox.LinBox.maximizeapp
+constructbox.MacBox.maximizeapp
+constructbox.WinBox.maximizeapp" class="py-name" href="#" onclick="return doclink('link-10', 'maximizeapp', 'link-10');">maximizeapp</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_firefox</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"> </tt>
+<a name="Firefox.reload"></a><div id="Firefox.reload-def"><a name="L75"></a><tt class="py-lineno"> 75</tt> <a class="py-toggle" href="#" id="Firefox.reload-toggle" onclick="return toggle('Firefox.reload');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="firefox.Firefox-class.html#reload">reload</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Firefox.reload-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Firefox.reload-expanded"><a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">        <tt class="py-docstring">""" Reloads the current page """</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_system</tt><tt class="py-op">.</tt><tt class="py-name">mach</tt> <tt class="py-op">==</tt> <tt class="py-string">'mac'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">            <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-string">"r"</tt><tt class="py-op">,</tt> <tt class="py-name">KEY_CMD</tt><tt class="py-op">)</tt> <tt class="py-comment"># reload page</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">            <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-string">'r'</tt><tt class="py-op">,</tt> <tt class="py-name">KEY_CTRL</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"> </tt>
+<a name="Firefox.gotodashboard"></a><div id="Firefox.gotodashboard-def"><a name="L82"></a><tt class="py-lineno"> 82</tt> <a class="py-toggle" href="#" id="Firefox.gotodashboard-toggle" onclick="return toggle('Firefox.gotodashboard');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="firefox.Firefox-class.html#gotodashboard">gotodashboard</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Firefox.gotodashboard-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Firefox.gotodashboard-expanded"><a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-docstring">""" clicks on the dashboard icon in the bottom right of firefox. </tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-docstring">            this is only valid if the extension is installed </tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">exists</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_system</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Method constructbox.Box.images()=constructbox.Box-class.html#images,Method constructbox.MacBox.images()=constructbox.MacBox-class.html#images,Method constructbox.WinBox.images()=constructbox.WinBox-class.html#images"><a title="constructbox.Box.images
+constructbox.MacBox.images
+constructbox.WinBox.images" class="py-name" href="#" onclick="return doclink('link-11', 'images', 'link-11');">images</a></tt><tt class="py-op">(</tt><tt class="py-string">"developer_preview_tab.png"</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">            <tt class="py-name">click</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_system</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name"><a title="constructbox.Box.images
+constructbox.MacBox.images
+constructbox.WinBox.images" class="py-name" href="#" onclick="return doclink('link-12', 'images', 'link-11');">images</a></tt><tt class="py-op">(</tt><tt class="py-string">"developer_preview_tab.png"</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">  </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_system</tt><tt class="py-op">.</tt><tt class="py-name">mach</tt> <tt class="py-op">==</tt> <tt class="py-string">'mac'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">            <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-string">"t"</tt><tt class="py-op">,</tt> <tt class="py-name">KEY_CMD</tt><tt class="py-op">)</tt> <tt class="py-comment"># reload page</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">            <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-string">'t'</tt><tt class="py-op">,</tt> <tt class="py-name">KEY_CTRL</tt><tt class="py-op">)</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">         </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Method firefox.Firefox.go_to_url()=firefox.Firefox-class.html#go_to_url"><a title="firefox.Firefox.go_to_url" class="py-name" href="#" onclick="return doclink('link-13', 'go_to_url', 'link-13');">go_to_url</a></tt><tt class="py-op">(</tt><tt class="py-string">'https://myapps.mozillalabs.com/'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"> </tt>
+<a name="Firefox.switchappdirtab"></a><div id="Firefox.switchappdirtab-def"><a name="L97"></a><tt class="py-lineno"> 97</tt> <a class="py-toggle" href="#" id="Firefox.switchappdirtab-toggle" onclick="return toggle('Firefox.switchappdirtab');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="firefox.Firefox-class.html#switchappdirtab">switchappdirtab</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Firefox.switchappdirtab-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Firefox.switchappdirtab-expanded"><a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">        <tt class="py-docstring">""" switches to the apps.mozillalabs.com/appdir tab """</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">exists</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_system</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="constructbox.Box.images
+constructbox.MacBox.images
+constructbox.WinBox.images" class="py-name" href="#" onclick="return doclink('link-14', 'images', 'link-11');">images</a></tt><tt class="py-op">(</tt><tt class="py-string">"mozilla_appdir_tab.png"</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">            <tt class="py-name">click</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_system</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="constructbox.Box.images
+constructbox.MacBox.images
+constructbox.WinBox.images" class="py-name" href="#" onclick="return doclink('link-15', 'images', 'link-11');">images</a></tt><tt class="py-op">(</tt><tt class="py-string">"mozilla_appdir_tab.png"</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method firefox.Firefox.reload()=firefox.Firefox-class.html#reload"><a title="firefox.Firefox.reload" class="py-name" href="#" onclick="return doclink('link-16', 'reload', 'link-16');">reload</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_system</tt><tt class="py-op">.</tt><tt class="py-name">mach</tt> <tt class="py-op">==</tt> <tt class="py-string">'mac'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">            <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-string">"t"</tt><tt class="py-op">,</tt> <tt class="py-name">KEY_CMD</tt><tt class="py-op">)</tt> <tt class="py-comment"># reload page</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">            <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-string">'t'</tt><tt class="py-op">,</tt> <tt class="py-name">KEY_CTRL</tt><tt class="py-op">)</tt>  </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="firefox.Firefox.go_to_url" class="py-name" href="#" onclick="return doclink('link-17', 'go_to_url', 'link-13');">go_to_url</a></tt><tt class="py-op">(</tt><tt class="py-string">'https://apps.mozillalabs.com/appdir'</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >apidocs</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jan 17 23:13:06 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

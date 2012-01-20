@@ -1,3 +1,12 @@
+"""
+File: firefox.py
+
+Author: David Clarke
+Contributor(s): Jason Smith
+
+Date: 1/18/2012
+"""
+
 class TimeoutStartupError(Exception):
     """
     Thrown to indicate that firefox failed to startup within a time period.
@@ -6,22 +15,24 @@ class TimeoutStartupError(Exception):
 
 
 class Firefox:
-    """ This class encapsulates actions that occur on the browser """
-    STARTUP_TIMEOUT = 10
-    
+    """
+    This class encapsulates actions that occur on the Firefox browser.
+    """
+
     def __init__(self):
         """
         Constructs a Firefox application instance and loads the application.
         """
-        self._system = ConstructBox()
+        self._system = ConstructOSBox()
         self.start_browser()
         self.maximize()
 
     def start_browser(self):
-        """ Starts up the browser if it hasn't already started and waits until it is loaded.
+        """
+        Starts up the browser if it hasn't already started and waits until it is loaded.
         
         Raises:
-        TimeoutStartupError: If firefox fails to startup within ten seconds
+            TimeoutStartupError: If firefox fails to startup within ten seconds
 
         """
         self._location = self._system.firefoxLocation()
@@ -35,7 +46,7 @@ class Firefox:
         time_passed = 0
         
         # Wait until firefox has started for a period of time
-        while(not is_started and time_passed < Firefox.STARTUP_TIMEOUT):
+        while(not is_started and time_passed < 10):
             if self._firefox.window():
                 is_started = True
             wait(1)
@@ -55,11 +66,9 @@ class Firefox:
         Instructs the browser to go to the specified URL.
         
         Arguments:
-        url: The url to go to
+            url: The url to go to
 
         """
-        print "Going to URL: " + url
-        
         if(self._system.mach == 'mac'):
             type("l", KEY_CMD)
         else:
@@ -100,9 +109,10 @@ class Firefox:
             click(self._system.images("mozilla_appdir_tab.png"))
             self.reload()
             return
+
         if(self._system.mach == 'mac'):
             type("t", KEY_CMD) # reload page
         else:
-            type('t', KEY_CTRL) 
-        self.go_to_url('https://apps.mozillalabs.com/appdir')
+            type('t', KEY_CTRL)
 
+        self.go_to_url('https://apps.mozillalabs.com/appdir')
